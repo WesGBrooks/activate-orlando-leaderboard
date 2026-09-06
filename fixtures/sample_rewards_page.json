@@ -1,0 +1,365 @@
+{
+  "component": "Site/Scores/RewardsLoyalty",
+  "props": {
+    "player": {
+      "player": {
+        "playerName": "GibsonLeader",
+        "rank": 3,
+        "stars": 195,
+        "coins": 56
+      },
+      "location": {
+        "levelCount": 480,
+        "rooms": [
+          {
+            "id": 10,
+            "name": "Hoops"
+          },
+          {
+            "id": 12,
+            "name": "Grid"
+          },
+          {
+            "id": 20,
+            "name": "Hide"
+          },
+          {
+            "id": 22,
+            "name": "Mega Grid"
+          },
+          {
+            "id": 23,
+            "name": "Mega Laser"
+          },
+          {
+            "id": 24,
+            "name": "Control"
+          },
+          {
+            "id": 25,
+            "name": "Strike"
+          },
+          {
+            "id": 26,
+            "name": "Portals"
+          },
+          {
+            "id": 27,
+            "name": "Press"
+          },
+          {
+            "id": 28,
+            "name": "Scan"
+          }
+        ]
+      },
+      "playerLocation": {
+        "locationId": 41,
+        "playerName": "GibsonLeader",
+        "playerRank": 4,
+        "scores": [
+          {
+            "gameId": 1003,
+            "levelId": 3,
+            "highScore": 4547
+          },
+          {
+            "gameId": 1003,
+            "levelId": 4,
+            "highScore": 5381
+          },
+          {
+            "gameId": 1003,
+            "levelId": 5,
+            "highScore": 6346
+          },
+          {
+            "gameId": 1201,
+            "levelId": 0,
+            "highScore": 1832
+          },
+          {
+            "gameId": 1203,
+            "levelId": 0,
+            "highScore": 1889
+          },
+          {
+            "gameId": 1203,
+            "levelId": 1,
+            "highScore": 2890
+          },
+          {
+            "gameId": 1203,
+            "levelId": 2,
+            "highScore": 3820
+          },
+          {
+            "gameId": 2003,
+            "levelId": 0,
+            "highScore": 1826
+          },
+          {
+            "gameId": 2003,
+            "levelId": 1,
+            "highScore": 2712
+          },
+          {
+            "gameId": 2200,
+            "levelId": 0,
+            "highScore": 1736
+          },
+          {
+            "gameId": 2200,
+            "levelId": 2,
+            "highScore": 3573
+          },
+          {
+            "gameId": 2204,
+            "levelId": 2,
+            "highScore": 3719
+          },
+          {
+            "gameId": 2300,
+            "levelId": 0,
+            "highScore": 1887
+          },
+          {
+            "gameId": 2302,
+            "levelId": 0,
+            "highScore": 1891
+          },
+          {
+            "gameId": 2302,
+            "levelId": 1,
+            "highScore": 2879
+          },
+          {
+            "gameId": 2302,
+            "levelId": 2,
+            "highScore": 3696
+          },
+          {
+            "gameId": 2303,
+            "levelId": 0,
+            "highScore": 2037
+          },
+          {
+            "gameId": 2303,
+            "levelId": 1,
+            "highScore": 3008
+          },
+          {
+            "gameId": 2404,
+            "levelId": 1,
+            "highScore": 2462
+          },
+          {
+            "gameId": 2404,
+            "levelId": 2,
+            "highScore": 3831
+          },
+          {
+            "gameId": 2404,
+            "levelId": 3,
+            "highScore": 4581
+          },
+          {
+            "gameId": 2404,
+            "levelId": 4,
+            "highScore": 5619
+          },
+          {
+            "gameId": 2405,
+            "levelId": 0,
+            "highScore": 1663
+          },
+          {
+            "gameId": 2405,
+            "levelId": 1,
+            "highScore": 2694
+          },
+          {
+            "gameId": 2405,
+            "levelId": 2,
+            "highScore": 3462
+          },
+          {
+            "gameId": 2504,
+            "levelId": 1,
+            "highScore": 2583
+          },
+          {
+            "gameId": 2506,
+            "levelId": 0,
+            "highScore": 1885
+          },
+          {
+            "gameId": 2506,
+            "levelId": 1,
+            "highScore": 2767
+          },
+          {
+            "gameId": 2506,
+            "levelId": 2,
+            "highScore": 3695
+          },
+          {
+            "gameId": 2506,
+            "levelId": 3,
+            "highScore": 4560
+          },
+          {
+            "gameId": 2600,
+            "levelId": 1,
+            "highScore": 2150
+          },
+          {
+            "gameId": 2600,
+            "levelId": 2,
+            "highScore": 3064
+          },
+          {
+            "gameId": 2701,
+            "levelId": 0,
+            "highScore": 1806
+          },
+          {
+            "gameId": 2802,
+            "levelId": 0,
+            "highScore": 1554
+          },
+          {
+            "gameId": 2802,
+            "levelId": 1,
+            "highScore": 2640
+          },
+          {
+            "gameId": 2802,
+            "levelId": 2,
+            "highScore": 3340
+          }
+        ],
+        "standing": 7115,
+        "totalScore": 110025,
+        "yearlyRank": 2436,
+        "yearlyScore": 110025,
+        "trophyProgress": {
+          "bronze": {
+            "progress": 0.12,
+            "requiredBadges": 25
+          },
+          "silver": {
+            "progress": 0.06,
+            "requiredBadges": 50
+          },
+          "gold": {
+            "progress": 0.04,
+            "requiredBadges": 75
+          },
+          "platinum": {
+            "progress": 0.03,
+            "requiredBadges": 118
+          }
+        }
+      },
+      "locationId": "41",
+      "locationName": "orlando (pointe orlando)"
+    },
+    "rewards": [
+      {
+        "id": 11,
+        "rewardTypeId": 11,
+        "name": "Keychain",
+        "slug": "keychain",
+        "limitedEdition": false,
+        "nfcTag": true,
+        "bundleItems": [],
+        "description": "This keychain stores your Player Profile and lets you skip the sign in. Don't forget to bring it with you next time!",
+        "internalName": "HQ FOB Keychain Black",
+        "locationId": 41,
+        "cost": 10,
+        "status": 1,
+        "limitPerPlayer": null,
+        "minimumRank": null,
+        "isStocked": true,
+        "threshold": 14000
+      },
+      {
+        "id": 54,
+        "rewardTypeId": 54,
+        "name": "City Sticker",
+        "slug": "citySticker",
+        "limitedEdition": false,
+        "nfcTag": false,
+        "bundleItems": [],
+        "description": "A high-quality vinyl sticker unique to your location. Collect one at every Activate.",
+        "internalName": "HQ City Sticker",
+        "locationId": 41,
+        "cost": 15,
+        "status": 1,
+        "limitPerPlayer": null,
+        "minimumRank": null,
+        "isStocked": true,
+        "threshold": 1000
+      },
+      {
+        "id": 1,
+        "rewardTypeId": 1,
+        "name": "Water Bottle",
+        "slug": "waterBottle",
+        "limitedEdition": false,
+        "nfcTag": false,
+        "bundleItems": [],
+        "description": "A sporty plastic water bottle with a twist lid. Not recommended for hot beverages.",
+        "internalName": "HQ Water Bottle Black",
+        "locationId": 41,
+        "cost": 50,
+        "status": 1,
+        "limitPerPlayer": null,
+        "minimumRank": null,
+        "isStocked": true,
+        "threshold": 6500
+      },
+      {
+        "id": 18,
+        "rewardTypeId": 18,
+        "name": "Sticker Pack",
+        "slug": "stickerpack",
+        "limitedEdition": false,
+        "nfcTag": false,
+        "bundleItems": [],
+        "description": "A collection of Activate-themed stickers, perfect for laptops and water bottles.",
+        "internalName": "HQ Sticker Pack 1 Blue/Red/Purple",
+        "locationId": 41,
+        "cost": 60,
+        "status": 1,
+        "limitPerPlayer": null,
+        "minimumRank": null,
+        "isStocked": true,
+        "threshold": 50
+      },
+      {
+        "id": 21,
+        "rewardTypeId": 21,
+        "name": "Additional 15 Minutes",
+        "slug": "additionalminutes15",
+        "limitedEdition": false,
+        "nfcTag": false,
+        "bundleItems": [],
+        "description": "Keep the fun going with 15 additional minutes. Applies to one Player.",
+        "internalName": null,
+        "locationId": 41,
+        "cost": 80,
+        "status": 1,
+        "limitPerPlayer": null,
+        "minimumRank": null,
+        "isStocked": false,
+        "threshold": -1
+      }
+    ],
+    "isLoyalty": true,
+    "franchiseSlug": "activate-games"
+  },
+  "url": "/scores/gibsonleader/41/orlando%20%28pointe%20orlando%29/rewards",
+  "version": "fixture"
+}

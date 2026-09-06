@@ -19,10 +19,12 @@ def test_health_and_leaderboard_demo(tmp_path, monkeypatch):
     resp = client.get("/")
     assert resp.status_code == 200
     assert "Activate" in resp.text
+    assert "GibsonLeader" in resp.text
 
     api = client.get("/api/leaderboard")
     assert api.status_code == 200
     payload = api.json()
     assert payload["location"]["id"] == 42
     assert payload["location"]["slug"] == "pointe-orlando"
+    assert payload["location"]["score_location_id"] == 41
     assert len(payload["players"]) >= 1

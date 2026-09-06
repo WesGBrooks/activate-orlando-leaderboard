@@ -7,24 +7,33 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# Games listed on Activate public scores pages for Pointe Orlando.
+# Display order for Orlando (Pointe Orlando) public score rooms.
 ORLANDO_GAMES: list[tuple[str, str]] = [
-    ("arena", "Arena"),
-    ("climb", "Climb"),
-    ("grid", "Grid"),
     ("hoops", "Hoops"),
-    ("mega-laser", "Mega Laser"),
-    ("pipes", "Pipes"),
-    ("push", "Push"),
-    ("trench", "Trench"),
+    ("grid", "Grid"),
     ("hide", "Hide"),
-    ("control", "Control"),
     ("mega-grid", "Mega Grid"),
-    ("laser", "Laser"),
+    ("mega-laser", "Mega Laser"),
+    ("control", "Control"),
     ("strike", "Strike"),
     ("portals", "Portals"),
     ("press", "Press"),
     ("scan", "Scan"),
+]
+
+# Room ids from Activate location.rooms on the Pointe Orlando scores page.
+# Score rows encode room as gameId // 100.
+ORLANDO_ROOM_IDS: list[tuple[int, str, str]] = [
+    (10, "hoops", "Hoops"),
+    (12, "grid", "Grid"),
+    (20, "hide", "Hide"),
+    (22, "mega-grid", "Mega Grid"),
+    (23, "mega-laser", "Mega Laser"),
+    (24, "control", "Control"),
+    (25, "strike", "Strike"),
+    (26, "portals", "Portals"),
+    (27, "press", "Press"),
+    (28, "scan", "Scan"),
 ]
 
 
@@ -32,9 +41,13 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     activate_base_url: str = "https://playactivate.com"
+    # Site location record / picker id.
     activate_location_id: int = 42
     activate_location_slug: str = "pointe-orlando"
     activate_location_name: str = "Orlando (Pointe Orlando)"
+    # Scores URL location id/name (verified live for Pointe Orlando).
+    activate_score_location_id: int = 41
+    activate_score_location_name: str = "orlando (pointe orlando)"
 
     cache_ttl_seconds: int = 600
     friends_path: Path = ROOT / "data" / "friends.json"
@@ -48,6 +61,7 @@ class Settings(BaseSettings):
 
     demo_mode_fallback: bool = True
     force_demo_mode: bool = False
+    fetch_rewards: bool = True
 
     host: str = "0.0.0.0"
     port: int = 8000

@@ -2,71 +2,2156 @@
   "component": "Site/Scores/Player",
   "props": {
     "player": {
-      "id": "wes-demo",
-      "locationName": "pointe-orlando",
       "player": {
-        "id": "wes-demo",
-        "playerName": "Wes",
-        "coins": 1200,
-        "stars": 7,
-        "rank": 1500
+        "playerName": "GibsonLeader",
+        "rank": 3,
+        "stars": 195,
+        "coins": 56
       },
-      "playerLocation": {
-        "totalScore": 128400,
-        "standing": 42,
-        "scores": [
+      "location": {
+        "levelCount": 480,
+        "rooms": [
           {
-            "gameSlug": "mega-laser",
-            "gameName": "Mega Laser",
-            "highScore": 15400
+            "id": 10,
+            "name": "Hoops"
           },
           {
-            "gameSlug": "mega-laser",
-            "gameName": "Mega Laser",
-            "highScore": 12000
+            "id": 12,
+            "name": "Grid"
           },
           {
-            "gameSlug": "arena",
-            "gameName": "Arena",
-            "highScore": 9800
+            "id": 20,
+            "name": "Hide"
           },
           {
-            "gameSlug": "grid",
-            "gameName": "Grid",
-            "highScore": 11000
+            "id": 22,
+            "name": "Mega Grid"
           },
           {
-            "gameSlug": "control",
-            "gameName": "Control",
-            "highScore": 8800
+            "id": 23,
+            "name": "Mega Laser"
+          },
+          {
+            "id": 24,
+            "name": "Control"
+          },
+          {
+            "id": 25,
+            "name": "Strike"
+          },
+          {
+            "id": 26,
+            "name": "Portals"
+          },
+          {
+            "id": 27,
+            "name": "Press"
+          },
+          {
+            "id": 28,
+            "name": "Scan"
           }
         ]
       },
-      "location": {
-        "levelCount": 48,
-        "name": "Orlando (Pointe Orlando)",
-        "slug": "pointe-orlando"
-      }
+      "playerLocation": {
+        "locationId": 41,
+        "playerName": "GibsonLeader",
+        "playerRank": 4,
+        "scores": [
+          {
+            "gameId": 1003,
+            "levelId": 3,
+            "highScore": 4547
+          },
+          {
+            "gameId": 1003,
+            "levelId": 4,
+            "highScore": 5381
+          },
+          {
+            "gameId": 1003,
+            "levelId": 5,
+            "highScore": 6346
+          },
+          {
+            "gameId": 1201,
+            "levelId": 0,
+            "highScore": 1832
+          },
+          {
+            "gameId": 1203,
+            "levelId": 0,
+            "highScore": 1889
+          },
+          {
+            "gameId": 1203,
+            "levelId": 1,
+            "highScore": 2890
+          },
+          {
+            "gameId": 1203,
+            "levelId": 2,
+            "highScore": 3820
+          },
+          {
+            "gameId": 2003,
+            "levelId": 0,
+            "highScore": 1826
+          },
+          {
+            "gameId": 2003,
+            "levelId": 1,
+            "highScore": 2712
+          },
+          {
+            "gameId": 2200,
+            "levelId": 0,
+            "highScore": 1736
+          },
+          {
+            "gameId": 2200,
+            "levelId": 2,
+            "highScore": 3573
+          },
+          {
+            "gameId": 2204,
+            "levelId": 2,
+            "highScore": 3719
+          },
+          {
+            "gameId": 2300,
+            "levelId": 0,
+            "highScore": 1887
+          },
+          {
+            "gameId": 2302,
+            "levelId": 0,
+            "highScore": 1891
+          },
+          {
+            "gameId": 2302,
+            "levelId": 1,
+            "highScore": 2879
+          },
+          {
+            "gameId": 2302,
+            "levelId": 2,
+            "highScore": 3696
+          },
+          {
+            "gameId": 2303,
+            "levelId": 0,
+            "highScore": 2037
+          },
+          {
+            "gameId": 2303,
+            "levelId": 1,
+            "highScore": 3008
+          },
+          {
+            "gameId": 2404,
+            "levelId": 1,
+            "highScore": 2462
+          },
+          {
+            "gameId": 2404,
+            "levelId": 2,
+            "highScore": 3831
+          },
+          {
+            "gameId": 2404,
+            "levelId": 3,
+            "highScore": 4581
+          },
+          {
+            "gameId": 2404,
+            "levelId": 4,
+            "highScore": 5619
+          },
+          {
+            "gameId": 2405,
+            "levelId": 0,
+            "highScore": 1663
+          },
+          {
+            "gameId": 2405,
+            "levelId": 1,
+            "highScore": 2694
+          },
+          {
+            "gameId": 2405,
+            "levelId": 2,
+            "highScore": 3462
+          },
+          {
+            "gameId": 2504,
+            "levelId": 1,
+            "highScore": 2583
+          },
+          {
+            "gameId": 2506,
+            "levelId": 0,
+            "highScore": 1885
+          },
+          {
+            "gameId": 2506,
+            "levelId": 1,
+            "highScore": 2767
+          },
+          {
+            "gameId": 2506,
+            "levelId": 2,
+            "highScore": 3695
+          },
+          {
+            "gameId": 2506,
+            "levelId": 3,
+            "highScore": 4560
+          },
+          {
+            "gameId": 2600,
+            "levelId": 1,
+            "highScore": 2150
+          },
+          {
+            "gameId": 2600,
+            "levelId": 2,
+            "highScore": 3064
+          },
+          {
+            "gameId": 2701,
+            "levelId": 0,
+            "highScore": 1806
+          },
+          {
+            "gameId": 2802,
+            "levelId": 0,
+            "highScore": 1554
+          },
+          {
+            "gameId": 2802,
+            "levelId": 1,
+            "highScore": 2640
+          },
+          {
+            "gameId": 2802,
+            "levelId": 2,
+            "highScore": 3340
+          }
+        ],
+        "standing": 7115,
+        "totalScore": 110025,
+        "yearlyRank": 2436,
+        "yearlyScore": 110025,
+        "trophyProgress": {
+          "bronze": {
+            "progress": 0.12,
+            "requiredBadges": 25
+          },
+          "silver": {
+            "progress": 0.06,
+            "requiredBadges": 50
+          },
+          "gold": {
+            "progress": 0.04,
+            "requiredBadges": 75
+          },
+          "platinum": {
+            "progress": 0.03,
+            "requiredBadges": 118
+          }
+        }
+      },
+      "locationId": "41",
+      "locationName": "orlando (pointe orlando)"
     },
     "games": [
       {
-        "slug": "mega-laser",
-        "name": "Mega Laser"
-      },
-      {
+        "id": 1,
+        "name": "Arena",
         "slug": "arena",
-        "name": "Arena"
+        "description": "Dodgeball goes digital with this daring game room. Your team is tasked with striking specific glowing hexagon wall targets. Don\u2019t miss the mark. Quickly blast the beaming bullseye or it will be lights out for your team.",
+        "meta_description": "In Arena, your team must strike glowing hexagon wall targets and quickly blast the beaming bullseye.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Hand-Eye Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "33 HD Monitors"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "66 Infrared Sensors"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "2 Projectors"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Competitive Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "ckVgOZmUebV7zeYh",
+            "layout": "game",
+            "attributes": {
+              "name": "Swat",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/Jf0hn9z5jGpSfKY4zn6YEJ33Jm0cq1BZ8CmSgjwI.jpg",
+              "cooperative": true,
+              "description": "You have 90 seconds to hit the required number of blue targets. Sounds easy enough, but these bloom, fade, and sometimes turn red."
+            }
+          },
+          {
+            "key": "cz9hf8THm3953izY",
+            "layout": "game",
+            "attributes": {
+              "name": "Hunt",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/Y9s6JwRXYxPKKOSfYphzqBBc4lZgw5PhVfKlXdKp.jpg",
+              "cooperative": true,
+              "description": "The blinking target at the top is your assignment. Your mission is clear - hunt down all targets that match this formation, avoiding the red as they pop-up."
+            }
+          },
+          {
+            "key": "c2rLYNR6HgsqunTE",
+            "layout": "game",
+            "attributes": {
+              "name": "Digby",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/qZn492pO77CxcxtP1nemu75EIXkJmnpZ9rnvAh2b.jpg",
+              "cooperative": true,
+              "description": "Pay attention to the pattern given at the beginning of the round and do your best to memorize it. Replicate each pattern by hitting the correct targets. Do this 6 times to beat the level."
+            }
+          },
+          {
+            "key": "cvVt2Te9IfWsD9JO",
+            "layout": "game",
+            "attributes": {
+              "name": "Sectors",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/JIgKnd8OdbIgazzW3Do01EgympXxJ9ZU5KVHQ1lP.jpg",
+              "cooperative": false,
+              "description": "Fill in the board with your assigned color by hitting the targets while competing against others trying to do the same. The person with the most of their color on the board wins"
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/VMA7jywfWltN0CcnCJnP5o1WHFqy3OVlB9dZ3PPP.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/FJl9zaRNDHTCGyeGCVkoZTfIfkOqzxkXfMSVQmfT.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/Xamq4Ey7F8ssc8wgJILduqCeYBwxXL9tGBmvAZcS.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/k67HYDsBenCg9J66yPldyo6uMo2EEejvOiSiLDAY.png",
+        "background": "https://assets.playactivate.com/background-videos/5OKxKTSEwJjMMEs80GxrxA0HyfDetK2gMQPbxdC3.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/W3z7byWKujCmxUdyUfjba7dtq8eFVsyNR3aSTZEK.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/Zps7lZIxBLNqIww0EmoYaDwoAaB9OhctVVV5L5bz.gif",
+        "show_featured_games": false,
+        "youtube_id": "d1xeWPWnqT8"
       },
       {
+        "id": 2,
+        "name": "Climb",
+        "slug": "climb",
+        "description": "Climb is rock climbing without the elements and equipment, where each button represents a rock hold and every level increases in difficulty. Ascend the interactive rock wall and travel across the room, following your teammates to the safezone and completing a series of challenges along the way.",
+        "meta_description": "Climb is rock climbing without the elements and equipment, where each button represents a rock hold and every level increases in difficulty.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Fancy Hand & Footwork"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Multi-Tasking"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "400+ Proximity Sensors"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "240 Color-Changing Rock Holds"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "A Real-Life Laser Radar"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Competitive Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "ckDMOLmFXbOUWESr",
+            "layout": "game",
+            "attributes": {
+              "name": "Technique",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/PPsA9He8obNm71d5q4O0oKIbqcuTSss9oBebdIWm.jpg",
+              "cooperative": false,
+              "description": "To conquer this conquest, remember three simple rules: 1) Green is good, 2) Red is bad and, 3) Blue is a must. Make your way to the other side with these rules in mind to win."
+            }
+          },
+          {
+            "key": "cIW7uWErjTc3EE1C",
+            "layout": "game",
+            "attributes": {
+              "name": "Whack-A-Hold",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/UEIHPo0xrOaueLEhXMGcStnsAYmJyjtnFUwaAM7Y.jpg",
+              "cooperative": false,
+              "description": "Place yourself on the radiant rock wall and keep your eyes open for the green rocks to turn blue. Once they do, give them a whack! No crossing, or moles, required."
+            }
+          },
+          {
+            "key": "cDW5P3YWpFA3NhWv",
+            "layout": "game",
+            "attributes": {
+              "name": "Speed",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/csFL5AbXV0JW9NMVMnqusLNAigbRi6hbsD3zBBnQ.jpg",
+              "cooperative": false,
+              "description": "Cross the rock wall as fast as you can using the green hand holds and foot planks to guide you to the other side. Go quickly to avoid getting caught by the red lights."
+            }
+          },
+          {
+            "key": "cTXcBt92nn7C7O4G",
+            "layout": "game",
+            "attributes": {
+              "name": "Canyon Cross",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/Oh8SVvMWOjc5pUbfq4r6wKAzK2hJFpawP6wxHmOL.jpg",
+              "cooperative": false,
+              "description": "As you cross the canyon, collect as many colored rocks as you can. This takes some serious hand-eye coordination! Your assigned color will be given to you before the game begins."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/o7LmEzLSZCEgC8wbHVoeJoh4ccl9KDsUXhBQWLLI.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/NZrvWMYF30Cl2kYlAoLjuTcBfiTt2e8R2vUFYq0r.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/p7CCSws6gqTUzfcBOwdISDjzkv39hWi11zTkRGi3.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/KJm7XspxmS4d4U50xplZGLvXhsDOftnZnxF4oh1e.png",
+        "background": "https://assets.playactivate.com/background-videos/MFJVbE7VdurEXdueR8DfX0kknUnmdDXy6E2eCW50.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/2i4hVvmsyofg48bLyos1nPw1z0yB6I6C3cnJwrQI.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/trYni4xWwLJZasENKtIF3qISrXFO2Z8XTT9JvYyN.gif",
+        "show_featured_games": false,
+        "youtube_id": "e5LJN60fxdM"
+      },
+      {
+        "id": 3,
+        "name": "Grid",
         "slug": "grid",
-        "name": "Grid"
+        "description": "Grid rivals even the most intense \u201cthe floor is lava\u201d match. With a rainbow of glowing tiles at your feet, your team must strategically run around the room to complete each level. Step on or avoid certain tiles to win.",
+        "meta_description": "Grid rivals even the most intense \u201cthe floor is lava\u201d match. With a rainbow of glowing tiles at your feet, run around the room to complete each level.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Fancy-Hand & Footwork"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Multi-Tasking"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "17 Light-Up Wall Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "500+ Touch-Activated, Multi-Colored Floor Tiles"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "20 Neo Pixel Screens and LED Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Competitive Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cQkZmTmTZXIW1f3s",
+            "layout": "game",
+            "attributes": {
+              "name": "Flash Mines",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/TQxIo4h93h80CV73wARFWJnqcxiecLI61SsuqO4Z.jpg",
+              "cooperative": false,
+              "description": "Watch your step, literally. When the floor lights up, memorize the color and location of the tiles. To cross safely to the endzone your team must only step on the blue tiles. "
+            }
+          },
+          {
+            "key": "cfyhMALtFZ5D0BoX",
+            "layout": "game",
+            "attributes": {
+              "name": "Strategy",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/1yNsyqtGnx99zeRSvU5OYTq6tr9bCFg0FZuqUA9k.jpg",
+              "cooperative": false,
+              "description": "Destroy all the blue tiles using strategy, teamwork, and orange floor tile missiles. From your green safezone, step on orange tiles to blast away all the blue tiles to move on."
+            }
+          },
+          {
+            "key": "cak3HtzK3t6Ebhns",
+            "layout": "game",
+            "attributes": {
+              "name": "Quick Step",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/Sv5GC76aOUy9zllQHfQH6Dkh9hXZBSieJzWCyjwy.jpg",
+              "cooperative": false,
+              "description": "Use your fancy footwork to swiftly stomp out all of your 15 colored floor tiles. Step your way to victory before everyone else. The first one to darken all their tiles wins."
+            }
+          },
+          {
+            "key": "cjoC7DaLLOTPomiC",
+            "layout": "game",
+            "attributes": {
+              "name": "Zones",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/IY7cUYhZK08Z6FbUpMNXVMtiFDSir45mnpjZHr3I.jpg",
+              "cooperative": false,
+              "description": "Think musical chairs, without the music or the chairs. Secure yourself in a safezone before the timer runs out. The game ends when only one player remains."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/bM67ha3BjEaQykbBzLDDOl7amWG1OGlfs8vIIYHy.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/rbNboLmSfDgULxvOSLlLph423zRrCqVQbCb5PsR0.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/B2iRQstmdowMEvgHu2oDxdKd7QG5IBI8f3luwRUt.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/sV07I67527VEEU3BSHr3RQwTddIPkcFgocWYWMaA.png",
+        "background": "https://assets.playactivate.com/background-videos/EQQ9jAeMfTGqtvHAZTGFkiIP0sYJo8Jh7YVIGQUn.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/LC8SaCS9EmefFlZXKda3lQM5ldyURsVBuSq2ewUf.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/VrEPuQk7xo4d0kY7VG2i09xwvJ76pV1bUMTHhSUH.gif",
+        "show_featured_games": false,
+        "youtube_id": "escLa7W23Ik"
       },
       {
+        "id": 4,
+        "name": "Hoops",
+        "slug": "hoops",
+        "description": "Enter the Hoops court and become the all-star of technicolor basketball. Sink baskets off the color-shifting backboards or give them nothing but net as you strategically swish through your chosen game. When the game clock begins its countdown, how many buzzer beaters will you make?",
+        "meta_description": "Enter the Hoops court and become the all-star of technicolor basketball. Sink baskets off the color-shifting backboards or give them nothing but net.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Hand-Eye Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Memorization"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "5 Proximity Sensors, Rims, and Color-Changing Screens"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "35 Basketballs"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Competitive Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cnF7nIrqpgOY4Gnh",
+            "layout": "game",
+            "attributes": {
+              "name": "Trivial",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/bNKvAA9fRXcpB7fc5fCAFcAFCrs5teRoDaIwfZ9H.jpg",
+              "cooperative": true,
+              "description": "Trivia meets basketball in this quick-thinking game where being right is all that matters. Answer the multiple-choice question by sinking your shot into the correct color coded basket."
+            }
+          },
+          {
+            "key": "cWLJTGIq4F6scg8M",
+            "layout": "game",
+            "attributes": {
+              "name": "Simon Says",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/olHltXgvH2rAzN73LqjmBNykJpx1UOtRcNpqhJfo.jpg",
+              "cooperative": true,
+              "description": "Simon will make the baskets light-up in a multi-color sequence or red, blue, purple, yellow, or green. Follow the leader and match the sequence by sinking shots in the correct order."
+            }
+          },
+          {
+            "key": "cgOyEqWf6Vu1aLO0",
+            "layout": "game",
+            "attributes": {
+              "name": "15 Green",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/3bSKRlho1Jfupc7sqJt72Y3QnG6LsQws9f06HXTk.jpg",
+              "cooperative": true,
+              "description": "The objective is simple => throw your ball into the green baskets and avoid the red. Actually, it's almost too simple. So, here's the challenge - you must make 15 baskets in 40 seconds."
+            }
+          },
+          {
+            "key": "ctA2dAhHlmTFK7Ms",
+            "layout": "game",
+            "attributes": {
+              "name": "Barrage",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/MgxTjMkMrgetZ6WmCYf2dLKFSrmmWytdQEIcuFoY.jpg",
+              "cooperative": true,
+              "description": "Pick a blue hoop and score the required number of baskets in just 90 seconds.We hope your arms aren't tired yet, because in Barrage you must keep throwing."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/Wdfycta5439LS0ADlRhuX1zZqOH5KHHGH9D9kN7B.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/oVdt6BaR1XFtK9pRNerG6hEMO64VBxrNrjcQ66dD.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/KEVs7MDz5Eh5slA7hb71bznsMTfUIMGmhNS8L7r2.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/9HIrOTHMy1KIq1j70ZtywcaZuJEhbWAY4dDS9LqL.png",
+        "background": "https://assets.playactivate.com/background-videos/zJc7qQ4NcGCkIJEmE9VmoYB2ZEbZbAMdBVrnR7Zy.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/Thnc3wEAH6xlDZGHFW1ExFVvgY4EDpfLuzjbPVxK.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/2DYDB9HDnnfBdovoCWHHWB3RwZ6hhMaT3SDDgHkP.gif",
+        "show_featured_games": false,
+        "youtube_id": "CZbGwyGPyfI"
+      },
+      {
+        "id": 5,
+        "name": "Mega Laser",
+        "slug": "mega-laser",
+        "description": "Set your phasers to fun. Our take on tactical laser tag, minus the bulky vest and human targets. Laser is a triple-threat treat, featuring a laser maze, glowing targets, and beam blasters. Accurately shoot targets on the opposite wall or wind your way through the laser beams to certain victory.",
+        "meta_description": "Mega Laser is a triple-threat featuring a laser maze, glowing targets, and beam blasters. Wind your way through the laser beams or hit target on the wall.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "180 Straight & Diagonal Lasers"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "3 Thermal Cameras"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "5 Arcade Blasters"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "ckYLcnUChieKCuv9",
+            "layout": "game",
+            "attributes": {
+              "name": "Maze",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/u9mEPDD74iya5nfnr75jvULzcNqOMUIAwlhwPw4i.jpg",
+              "cooperative": false,
+              "description": "Live like a spy as you make your way to the other side of the room, contorting your body around a wall of lasers intent on catching you. Are you stealthy enough?"
+            }
+          },
+          {
+            "key": "c5UGtZ5gHBb0NCxg",
+            "layout": "game",
+            "attributes": {
+              "name": "Laser Relay",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/oDQxZnRS1ttnaORjQG93djRDuUdwdqKD8d7skxZe.jpg",
+              "cooperative": false,
+              "description": "Find, press, and hold your colored button until it turns off. Then, dive through the laser maze to do the same on the other side. Repeat until time runs out."
+            }
+          },
+          {
+            "key": "cOqyeKFlF06p4ILg",
+            "layout": "game",
+            "attributes": {
+              "name": "Gauntlet",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/s6RBJ9s6zhtWwGWz6pK4cyMpqrpn9ZXk8md9Ncst.jpg",
+              "cooperative": false,
+              "description": "The eyes of the laser beams are watching as you step into the middle of the room, ready to catch you. Can you dodge enough incoming lasers to survive?"
+            }
+          },
+          {
+            "key": "cMbqSNXlM5RX5ZgN",
+            "layout": "game",
+            "attributes": {
+              "name": "Zap",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/FyzBAbyEYANQ4QPEFduFztaUDh21BxQ4NTKiO5u0.jpg",
+              "cooperative": false,
+              "description": "Grab your laser blaster and zap as many blue targets as you can. Be on high alert, the targets may change to red without warning costing you a life."
+            }
+          },
+          {
+            "key": "cRbZM0wGpah4vFVt",
+            "layout": "game",
+            "attributes": {
+              "name": "Defuse",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/gDAfblgkTgfB4c4I6ronRDR4AC4SnreeS7bPkEJY.jpg",
+              "cooperative": false,
+              "description": "Code Red! A white target has been detonated and is set to explode. We need your team to work together, shooting at the moving target to defuse it before it blows."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/TxvCqDfF1QqHUQKtv0FoEOM3Ca2viU7sFfKylF85.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/RoayYKkQFL6eb0BMaC01pIdAZEQZTnCqx0DvuAVA.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/LJZ6xmu8RvEgpbkjxkOLc1G61FHHUGzrfvq53E84.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/Ij8E3Gi9RduXeuG8kG1ZUUWEJQABDKJmOi7Iun8s.png",
+        "background": "https://assets.playactivate.com/background-videos/0eukADv1Yi6zCvpII5CgwLtPiUBTIRNaTuWJhzPz.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/40BohS2GrpRH2hmi1VGiKNqsVhmZ5jlw7EwvuESo.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/J44yI77evziIWDShMkXW4yEhR81aXLQazAb3KyMg.gif",
+        "show_featured_games": false,
+        "youtube_id": "5iYXVGShHB8"
+      },
+      {
+        "id": 6,
+        "name": "Pipes",
+        "slug": "pipes",
+        "description": "Enter into another dimension where the pipeline to success rests on your team and a ball. Quick! You only have 5 seconds to identify the correct portal, toss the ball to your teammate, and put it in the hole. If anyone can do it, it\u2019s you.",
+        "meta_description": "Quick! In Pipes, you only have 5 seconds to identify the correct portal, toss the ball to your teammate, and put it in the hole.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Hand-Eye Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Communication"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "24 Pipes with Neo Pixel Screens"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "25 Touch-Activated Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cWZ82cpU0LZsF3Oj",
+            "layout": "game",
+            "attributes": {
+              "name": "Piperooni",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/CftbJyi88UQIjXfi7W3JIMSmcPT7bMkjhKC5vHcG.jpg",
+              "cooperative": false,
+              "description": "To have a ball you must first find the ball. Once found, drop it into the green portal and let the games begin! The bottom of each pipe will show you what color you need to find next."
+            }
+          },
+          {
+            "key": "cX5zbHIFIE4FQ1v9",
+            "layout": "game",
+            "attributes": {
+              "name": "Scramble",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/6EvVbv0Wr1PXAVKXhR73vOqDib5rAuWMfAX4wpVq.jpg",
+              "cooperative": false,
+              "description": "Unscramble the letters on the screen as you scramble around the room to decode the secret word. The pipes are your only way to spell it out. Avoid spelling errors to win."
+            }
+          },
+          {
+            "key": "cRkBSkFr4t06DWMo",
+            "layout": "game",
+            "attributes": {
+              "name": "Odd One Out",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/hvu139RKTL0XC81X6WpQAOUnAduPQPzY2dczfOqZ.jpg",
+              "cooperative": false,
+              "description": "Two of these pipes is not like the other. It might be blinking or a different color. Your job is to find the odd man out. Think you found it? Drop the ball in the portal. "
+            }
+          },
+          {
+            "key": "cSiu8Ddro3QFOy3w",
+            "layout": "game",
+            "attributes": {
+              "name": "Clockstoppers",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/XBN4P2AwcBACVxCtsj5H7yHVG8TtWYSLss7hwhYj.jpg",
+              "cooperative": false,
+              "description": "In this game, time unfortunately is not on your side. Beat the clock and put the ball in the pipe to stop time from ticking to the top. It's truly a race against time."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/BVFPPftireW7UT8jxFtWkLBYJGr19D6VeP6XMc1M.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/jkhG5tzl2P5i0xfBEIQJIG8hj0VJnYFE8M0EUaMY.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/NBKwpUcWNLRQXTpPym8pSH1L1RCMcOJcVc5WamrT.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/q7EEblBGqKSEKaVR8oJP5BpSOMiSw5WJO1xWUIi6.png",
+        "background": "https://assets.playactivate.com/background-videos/hJj9lPArbimjOFFRxxpWL2KH4zgNoxpQCvpfBffJ.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/P2BzDp7mQZhLujR0P7EGPEKU5LYa4brO82T1l4dn.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/qD7lfNTeRVp9pf0HwIG7h31pATUn6Xzfaah2MOEI.gif",
+        "show_featured_games": false,
+        "youtube_id": "XCHHJoHvFvI"
+      },
+      {
+        "id": 7,
+        "name": "Push",
+        "slug": "push",
+        "description": "Some buttons are meant to be pushed. Brimming with multi-colored buttons, Push is a light up game room designed to test your nimbleness. Set the buttons ablaze as you push patterns and master memorization. Don\u2019t worry, you don\u2019t have to tackle the challenge on your own. Your team is there to give you a hand as you push your way to certain victory.",
+        "meta_description": "Push is a light up game room brimming with multi-colored buttons, designed to test your nimbleness with patterns and memorization.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Hand-Eye Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Strategy"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Communication"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "452 Light-Up Buttons With 3 Rings of LEDS"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "1,356 Total LEDs"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "6 Games with Varying Difficulty Levels"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cVE7Uz4tMpA6fXco",
+            "layout": "game",
+            "attributes": {
+              "name": "Press-cision",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/mrRsY3TnfUDc6nFjKr0EwKb5BTilDVbpQpe8oinW.jpg",
+              "cooperative": false,
+              "description": "Race against a moving black button to eliminate all of the colored buttons before time runs out. As the unlit button goes over a pattern, you must quickly hit the matching pattern on the side wall to clear. "
+            }
+          },
+          {
+            "key": "cir52q2WcDHY75IR",
+            "layout": "game",
+            "attributes": {
+              "name": "Camo",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/NqfkWgYZhGjqn40RLz7QpAVxT81aLdPnhJqtWyaO.jpg",
+              "cooperative": false,
+              "description": " A sequence is hidden in a sea of bright colored buttons. Find it and you win. Careful! Don't be so quick to push - the pattern can be flipped in any direction."
+            }
+          },
+          {
+            "key": "cZG2BGuvRBV6KxlE",
+            "layout": "game",
+            "attributes": {
+              "name": "Match",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/aOx3IaCqIA451elyjaAyEcTN5HQw1DYA66E1pLLA.jpg",
+              "cooperative": false,
+              "description": "In this game, you're playing matchmaker. Put your memory to the test and remember the colored sequences. Identify the other half of the pair to clear the level."
+            }
+          },
+          {
+            "key": "cU4s1cppmqh8uLWP",
+            "layout": "game",
+            "attributes": {
+              "name": "Blast",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/IhZJU3rMfbwgGufCwPhI2LovZS9nvfjXte75IixX.jpg",
+              "cooperative": false,
+              "description": "Strategically place a finite number of blue bomb buttons on the wall to rid the room of lit buttons. Once set, detonate by Pushing the green button trigger and watch as the targets explode."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/GPdWbTubGPFcMNGEK19fOIdx39G08zj9Nlcjcy3q.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/ZLiPAR7ahJ2Ibkf08cDlOwizpSJvLfDJDzupetxU.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/eIkhMw0GQVE7TzQlsIxXre1Y1rdUELjh62GtQiPe.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/zGrPQDd88qzq1kdcg7WDWKBDdKcpRamseRZ8S32V.png",
+        "background": "https://assets.playactivate.com/background-videos/lY9jdji6qNsPis2RsvBWT1WUCHHvSVFLmbQmZkrG.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/7XYxgSamVYl0YswEXRHGRrtsl1VElj8CaEyI8moy.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/g1EQ2dNEdi6csKw2dDQlQPA4E2SyNAD2YzVwvGCV.gif",
+        "show_featured_games": false,
+        "youtube_id": "fEHDCE6fuK4"
+      },
+      {
+        "id": 8,
+        "name": "Super Grid",
+        "slug": "super-grid",
+        "description": "We upped the ante to take your Grid gaming abilities to the next level. The Super Grid game offers double the floor tiles and double the challenge, introducing light-up wall buttons to the mix that you must keep track of. As the floor tiles come to life your objective is step on or avoid certain ones to complete the level. Think you have what it takes?",
+        "meta_description": "Super Grid offers light-up floor tiles and wall buttons that you must keep track of. Your objective is step on or avoid certain ones to complete the level!",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Fancy-Hand & Footwork"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Multi-Tasking"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "17 Light-Up Wall Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "500+ Touch-Activated, Multi-Colored Floor Tiles"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "20 Neo Pixel Screens and LED Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "crO2034REVg9Vzuc",
+            "layout": "game",
+            "attributes": {
+              "name": "Jigsaw",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/NsKK35dWUDKkkPY10zQAcMN36Hj3NbuaFw9WTdX2.jpg",
+              "cooperative": false,
+              "description": "Find the matching piece to the puzzle in this game of fast feet and quick thinking. A series of shapes will appear on the floor.. Step on it's pair and return to the safe zone."
+            }
+          },
+          {
+            "key": "chrSlJ78V5yQIkLy",
+            "layout": "game",
+            "attributes": {
+              "name": "Super Grid",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/I8xXLk8OFkkEuvmjSQvAr74TIXVHxoK0XSOtK3H3.jpg",
+              "cooperative": false,
+              "description": "Avoid the red tiles as you work together to press all the blue buttons and step on the blue tiles, returning to the green safe zones when complete. Be careful! The red tiles can move and disappear."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/NlcTBzQf3lUV0lq8ZJGg89ekiIpSTtMRtgmI5COb.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/7ommmrwgSotyNMLzw9owMgWTukXAzTSWHtmRLt6J.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/d6qPmRxRTlCdv5XJoaF9hVlTb3e0EhBldQGrcShe.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/W213E3mlJm7z0k6YfmDZuiG9O6abVLRYtoxvTBcE.png",
+        "background": "https://assets.playactivate.com/background-videos/gQR2CUXm4aUuk6svS1djh8QqoOLU2ZxaguHHgCLv.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/tEWTXpNCUejaVuOLy9BOAoxjeDgobd1Kn63o4SO8.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/8aPjwRNmoKuzedbp9946RkfvDPHGz9m5Pd4qFOur.gif",
+        "show_featured_games": false,
+        "youtube_id": "g1e0zwLg67c"
+      },
+      {
+        "id": 9,
+        "name": "Trench",
+        "slug": "trench",
+        "description": "Set your phasers to fun. Our take on tactical laser tag, minus the bulky vest and human targets. Trench is a triple-threat treat, featuring a laser maze, glowing targets, and beam blasters. Accurately shoot targets on the opposite wall then quickly army crawl through the laser beams below to certain victory.",
+        "meta_description": "Trench is a triple-threat featuring a laser maze, glowing targets, and beam blasters. Hit targets on the opposite wall then army crawl through laser beams.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "10 Arcade Blasters"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "48 Light Triggered Targets"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "64 Lasers"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "czJV5Tnjfa2ThiWR",
+            "layout": "game",
+            "attributes": {
+              "name": "Trench",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/GiJnDhi0to5SxJ6FyipJPA7jwiYtT5WV5S8dUiYD.jpg",
+              "cooperative": false,
+              "description": "Gather your gang and get down in the trenches in this action-packed pursuit. Shoot all the blue targets then quickly crawl to the other side, dodging lasers along the way."
+            }
+          },
+          {
+            "key": "cgU9HPpc8mwx1nbX",
+            "layout": "game",
+            "attributes": {
+              "name": "Flash Fire",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/TzesuoxgomLByKUEquuA2g7CLXu1KN8VcvKybdne.jpg",
+              "cooperative": false,
+              "description": "Take your best shot in a game reliant on your recollection. Quickly study the color and location of the targets and blast away the intended targets from memory."
+            }
+          },
+          {
+            "key": "csFYUaEZo5ILsMoz",
+            "layout": "game",
+            "attributes": {
+              "name": "Zap",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/0bjxPEgqPU1LjcLuUIRPVdqRHoSWrM4T6e0B9RBo.jpg",
+              "cooperative": false,
+              "description": "Grab your laser blaster and zap as many blue targets as you can. Be on high alert, the targets may change to red without warning costing you a life. "
+            }
+          },
+          {
+            "key": "cU3sUnjK6n4uVZpZ",
+            "layout": "game",
+            "attributes": {
+              "name": "Defuse",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/sOQKMoayC4EVqGAvbJwqRz1qLJtQpFjvz8rcRfEi.jpg",
+              "cooperative": false,
+              "description": "Code Red! A white target has been detonated and is set to explode. We need your team to work together, shooting at the moving target to defuse it before it blows. "
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/D84mxBApS7Ak4K3j8IY8wTuNV1MOWXEiKuSDwjXs.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/Ja2dinmqQwExTxXyYKBIdElb04OXpQNiFne9liRQ.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/hBPxM3nGBgVQxZJlDWczQjQ1F1DvXGnXf1KSkKSp.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/2MEJ2tQAjLvR8wK00GFnJeY9QmOetPGQsKgcxBHO.png",
+        "background": "https://assets.playactivate.com/background-videos/ANIuVW511MVS7DUpeRfIBMejRar7JFRsaurh1izP.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/zVKtzpTi7qYeIZlM3Pc9VYzVJbl1LkeCDOtVQKKM.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/IGnx1oi21qoPe7Q5wMhMx3LW8epPFB10TuHSNMey.gif",
+        "show_featured_games": false,
+        "youtube_id": "Ih6zjX3RMZo"
+      },
+      {
+        "id": 10,
+        "name": "Hide",
+        "slug": "hide",
+        "description": "In this reimagined game of hide and go seek, your team must race around the room to complete sequences. But, be careful! Four glowing eyes are watching your every move, waiting for a misstep. Use the pillars to conceal yourself as you complete each level sight unseen.",
+        "meta_description": "Your team must race around the room to complete sequences. But, be careful! Four glowing eyes are watching your every move, waiting for a misstep.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Communication"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Strategy"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "26 LED Buttons and Neo-Pixel Screens"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "4 Motion-Sensing Eye Cameras"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "4 LED Blinking Eyes"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Competitive Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cRh97CWIkzLrTEB4",
+            "layout": "game",
+            "attributes": {
+              "name": "Relay",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/F7T692w8z34WzZZGfQjHZY3gEd7EhS150NI1sNk2.jpg",
+              "cooperative": false,
+              "description": "The chase is on! You are responsible for one colored button. Press and hold until the light goes out. Then, locate it's new position and press again. Repeat until the level is complete."
+            }
+          },
+          {
+            "key": "ccqs3qt3XFLRrqlt",
+            "layout": "game",
+            "attributes": {
+              "name": "Words",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/nUglMqMgLDJnBYpQPBEB7wLaLybc1Jb8AhtiBdBE.jpg",
+              "cooperative": false,
+              "description": "You have 8 seconds to pass this live-action spelling bee. Run around the room and hit the lit-up letters to correctly spell the word on the screen. Hide before it's too late."
+            }
+          },
+          {
+            "key": "c21HzK025CylTgiK",
+            "layout": "game",
+            "attributes": {
+              "name": "Numbers",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/bQq2OXW9Ha6Bwq1NAEXNhFyR2AmRnSUTQoaZrcYq.jpg",
+              "cooperative": false,
+              "description": "Communication is key in this numbers game. Press the illuminated numbers in order before the eyes blink red. Don't miss a number and don't get caught, your team is counting on you."
+            }
+          },
+          {
+            "key": "cXj4sSg7NSDluffA",
+            "layout": "game",
+            "attributes": {
+              "name": "Sequence",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/fJrh6FbTJodo0ojMFb4t2x9fpeFr6SFUBTRfo2DM.jpg",
+              "cooperative": false,
+              "description": "The memory game just got more challenging. Use the blue buttons to reveal what number is hiding beneath. Once you memorized each location, press each button in sequence from lowest to highest."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/J4TF3LNoqsfUTS7jILekyCEgFZ2L9Kvxv2zoB9L5.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/bNf1TY5Qh2IObFqsjq2TjPNXdGJj0EOu9M1jbYF3.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/hjFYvaplXTwmRhrClfNJISKYJMG2JpkuxvJVQY1g.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/yVtvRW2jSRcO5RitNUH49VqdirQxXl47tIWlF5AO.png",
+        "background": "https://assets.playactivate.com/background-videos/WraRYdTPl2dy6xFsSZiJ1ULkrmfZGLJyzWxXDacF.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/TTl5QlsHiMhNEDqdhFxFKPHSXA8efxoPwyPGyFY2.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/BSy7n7AnuateSQyzderhj4677d6xByhiFXzFIyGj.gif",
+        "show_featured_games": false,
+        "youtube_id": "5LJhpJZ6BAs"
+      },
+      {
+        "id": 11,
+        "name": "Control",
         "slug": "control",
-        "name": "Control"
+        "description": "In Control, you\u2019re in charge. So stand your ground and use quick feet (and thinking) to reign supreme. Consider the touch-activated, colored floor tiles are your control center where you must lean, step, and jump to guide the game.",
+        "meta_description": "In Control, the touch-activated, colored floor tiles are your control center where you must lean, step, and jump to guide the game.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Fancy Footwork"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "10 Touch-Sensitive Floor Panels"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "1000+ Pixel Game Wall"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "5 Jumbo D-Pad Game Controllers"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cjbJW6YYak5ItULv",
+            "layout": "game",
+            "attributes": {
+              "name": "Collect",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/oaxS6E7S3ckdXjX2oKNaclRVcaBUi084rJlrDr23.jpg",
+              "cooperative": true,
+              "description": "Move your body from left to right to grab the falling tiles in a certain color. Be careful - the color can change quickly! Failure to grab the correct color will cost you."
+            }
+          },
+          {
+            "key": "cdxDsLCZH9MLKUNr",
+            "layout": "game",
+            "attributes": {
+              "name": "Maze Runner",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/UYZcvAvIeoq2yXKdmbD1njbRb7YHikLNY9yEACco.jpg",
+              "cooperative": true,
+              "description": "Enter the maze and plant your feet on the colored floor tiles. Run in place while moving the joysticks to grab all of the blue tiles scattered throughout, all while being chased by reds."
+            }
+          },
+          {
+            "key": "cQIUyUcIt60FttSM",
+            "layout": "game",
+            "attributes": {
+              "name": "Bumper",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/BvMXiO8UXpXB7tKHmKRCag9kpWsY27pgrzGVhUQs.jpg",
+              "cooperative": false,
+              "description": "Shoot all of the tiles of your own color while controlling a tank that can move all the way round the outside of the grid. Don't hit the red tiles, or it'll be game over."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/ri1E78GkG0xU4OUFEeSvYbDnqN5L0SRdy7kn8nqD.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/x0etvN7yV69IQkn7uDJ8i7aVCj9igbXziUg7KqJQ.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/83X8tIq4IJKVY2oV6nJSN3UhIJI6CwXDVZifgoTN.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/1nffLO8KCzFNXfoITbZlnXiyCzl91HDr2KhCrMMC.png",
+        "background": "https://assets.playactivate.com/background-videos/baO6JGE40poiFvusnKahBdiYdwhyNXNxRLYIZtEr.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/mqPryuNHJRKjht7tk6n1Wji1iWUB83WJJxGx6NVJ.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/Txhmv0dk3rBvuj7LEYIasstN1mlFdDRwXzXY2K7A.gif",
+        "show_featured_games": false,
+        "youtube_id": "XiTW2LRRfYI"
+      },
+      {
+        "id": 12,
+        "name": "Mega Grid",
+        "slug": "mega-grid",
+        "description": "Mega Grid offers over 500 touch sensitive LED floor tiles and light-up wall buttons that require a combination of speed, hand eye coordination and communication. As the floor tiles come to life, your objective is to step on or avoid certain ones to complete the level.",
+        "meta_description": "Mega Grid offers over 500 touch-sensitive LED floor tiles and light-up wall buttons that require a speed, hand eye coordination and communication.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Fancy-Hand & Footwork"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Multi-Tasking"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "17 Light-Up Wall Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "500+ Touch-Activated, Multi-Colored Floor Tiles"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "20 Neo Pixel Screens and LED Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cAMBXw8FfT7XUFQa",
+            "layout": "game",
+            "attributes": {
+              "name": "Hopscotch",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/WxJnTvaEDNWicoObtV6cQfznZLk5HWMoM2iJnHXx.jpg",
+              "cooperative": false,
+              "description": "Forget the chalk. Each player will be given their very own sidewalk square that will light up in an order that must be followed. Memorize the pattern and hop along to victory."
+            }
+          },
+          {
+            "key": "cPqqGGCVYPKJInzV",
+            "layout": "game",
+            "attributes": {
+              "name": "Mega Zones",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/tq1h8DAHlpGukX5FBE8ICdVv9rS0L1D2PD827bkf.jpg",
+              "cooperative": false,
+              "description": "Listen to the voice as it says a color. This is your safezone. When the countdown begins, sprint to safety and secure yourself in an unmanned zone."
+            }
+          },
+          {
+            "key": "cCSu9XozCgLURkS8",
+            "layout": "game",
+            "attributes": {
+              "name": "Statues",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/2yttfmaUA2GYdeknfdTBur8sn6g7EeJxh135nDqa.jpg",
+              "cooperative": false,
+              "description": "Pound the prism pavement, hitting all the tiles that match the colors of the descending numbers. Stand perfectly still when the timer hits 0 to avoid being detected."
+            }
+          },
+          {
+            "key": "cbAAoAByNftH1hwD",
+            "layout": "game",
+            "attributes": {
+              "name": "Mega Grid",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/VH71qVAIsGZBgcdXTOBRMEDuFheO12L3pSNNbxCF.jpg",
+              "cooperative": false,
+              "description": "Avoid the red tiles as you work together to press all the blue buttons and step on the blue tiles, returning to the green safe zones when complete. Be careful! The red tiles can move and disappear."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/N8fnZEWSRHuQUqyEOh57b0Pm8CLsHLztgJ2ucQCt.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/vMAd25RmkQF4jveIHRqyR3ZybrcYJqIeIXCoLZIq.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/822sz3I4AtXg7wNJRiwiBhBb6C0gW6ytcjcXlM1g.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/fHCNQTWaTdbGD8GALjJzHvERyDLAL4EoamIeOrlI.png",
+        "background": "https://assets.playactivate.com/background-videos/LLgtwQbyXfiCEiQJ3g7ezP5bhczol2xTPtRGPf2k.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/7KdjssDjIIjfa5E7dPgwu7NbCeHRQ6xYJAzOm7al.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/wbU8y3GORnFWNoPDuBcXvevdlAIa3ZfRmGZhBHqk.gif",
+        "show_featured_games": false,
+        "youtube_id": "oP75I4kKnz4"
+      },
+      {
+        "id": 13,
+        "name": "Laser",
+        "slug": "laser",
+        "description": "Dip and dodge as you carefully maneuver your way back and forth to the safe zone through a changing sequence of lasers. One finger out of place will trip the beam in this laser ops fantasy.",
+        "meta_description": "In Laser, dip and dodge as you carefully maneuver your way back and forth to the safe zone through a changing sequence of laser light beams.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "180 Straight Lasers"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "3 Thermal Cameras"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cbnbFZzA765GRjte",
+            "layout": "game",
+            "attributes": {
+              "name": "Maze",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/YHYkbvohlEhokzfCtXKAqCeyGwG3uBtMy8y7uk80.jpg",
+              "cooperative": false,
+              "description": "Live like a spy as you make your way to the other side of the room, contorting your body around a wall of lasers intent on catching you. Are you stealthy enough?\n"
+            }
+          },
+          {
+            "key": "cuRGI5ddjqeveCL7",
+            "layout": "game",
+            "attributes": {
+              "name": "Zap",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/IAYvJl3c9OoTlnL5SBK9jwPDD1QP5u2wz91inIBz.jpg",
+              "cooperative": false,
+              "description": "Grab your laser blaster and zap as many blue targets as you can. Be on high alert, the targets may change to red without warning costing you a life."
+            }
+          },
+          {
+            "key": "c13PAY8G1YyZDQ3b",
+            "layout": "game",
+            "attributes": {
+              "name": "Laser Relay",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/PW1UF4hEO4RH757kZupQRGw1HJc48OCXFI9G6MOO.jpg",
+              "cooperative": false,
+              "description": "Find, press, and hold your colored button until it turns off. Then, dive through the laser maze to do the same on the other side. Repeat until time runs out.\n"
+            }
+          },
+          {
+            "key": "cDswIDWsp6ELAhPe",
+            "layout": "game",
+            "attributes": {
+              "name": "Gauntlet",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/CiW7IjtCo6PVMQHRW07pqyhVH85IMNrVm3Plzvjb.jpg",
+              "cooperative": false,
+              "description": "The eyes of the laser beams are watching as you step into the middle of the room, ready to catch you. Can you dodge enough incoming lasers to survive?\n"
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/Om9qAE2iPnGnMYfDkKEFSk7a6nhX1Sin0nAYjk86.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/4taHExZPvZcCN3bqs3YXQF9Y8sX1AmS4mrVOd8Ba.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/jG3pN7tIAvFWjH7UrTFbmn1tIu3V05B5iDUI0NzM.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/zoApkth11Ne1L9sCpFxkTchYCQllA4HkXvJ7jX92.png",
+        "background": "https://assets.playactivate.com/background-videos/8FiuuGV7YwfUn2Ld8RDP7xMyg0Vp1MLM5FjBm1K0.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/GDf2KqoYSElhVqHBPRugei6jboNXidqB0JSwMU31.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/krYtk6sHvv7XgO5tQU25EBTRE3eNUzijBQDdMoGe.gif",
+        "show_featured_games": false,
+        "youtube_id": "-uwqd5nane0"
+      },
+      {
+        "id": 14,
+        "name": "Strike",
+        "slug": "strike",
+        "description": "Dodgeball goes digital with this daring game room. Your team is tasked with striking specific glowing screen wall targets. Don\u2019t miss the mark. Quickly blast the beaming bullseye or it will be lights out for your team.",
+        "meta_description": "In Strike, dodgeball goes digital. Throw a ball at glowing screen wall targets and quickly blast the beaming bullseye.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Hand-Eye Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "32 HD Monitors"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "66 Touch-Sensitive Screens"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "2 Projectors"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Competitive Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cavfBCO8ALFxYqcx",
+            "layout": "game",
+            "attributes": {
+              "name": "Asteroids",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/lsFWEui9rvngYaM2OKWSf51GVae6s8lpJtW8xDIm.jpg",
+              "cooperative": false,
+              "description": "It's an Asteroid attack! Defend your team from menacing moon rock by throwing special space balls at the screens as they hurl towards your team."
+            }
+          },
+          {
+            "key": "cTlNjVZK9e5eMp5b",
+            "layout": "game",
+            "attributes": {
+              "name": "Flip",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/ZXoTzdz14yIZKnFyzEpUfwZC1KQOVtZDQzdoneqQ.jpg",
+              "cooperative": false,
+              "description": "Image duplicates are hidden behind the lit hexagon blocks. Remember where they are and use your rubber balls to hit the perfectly paired targets."
+            }
+          },
+          {
+            "key": "cm21FK37utk3mmcD",
+            "layout": "game",
+            "attributes": {
+              "name": "Dartmouth",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/0MM5Z27QpiNvjFz2R1dbvLhytk3fj5If90gxiw2N.jpg",
+              "cooperative": false,
+              "description": "Targets will light up in a specific pattern at the beginning of each round. You have a few seconds to memorize this pattern before it disappears. Replicate the pattern by hitting the appropriate target."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/5DV8x7nAVrJK57KMlevlcUAtyx6DrRbg5kFZY6hS.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/HMzaEdxTXdyNGvbpgraui2eYOGZOLleomSGmGfEp.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/WhSYx8cuikrqmRwWfOMhzZjSM6L3sVnY0fYy90bu.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/EgnDCzv1vNBf56bHqU43ITgKI98dMQXk97U5G4xO.png",
+        "background": "https://assets.playactivate.com/background-videos/qjGqZlxcCRXm54XQEoyNjGVyzzzyhyX3gYjFCOFX.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/HTRe3OtxA3hqAemDehqxtWARtwV2x3fDdc1BSssg.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/oT1YUjHK9qcSKekRdQ2gbVhlQK3ud3R7CqcRyOdr.gif",
+        "show_featured_games": false,
+        "youtube_id": "pyrl9C3O1Sw"
+      },
+      {
+        "id": 15,
+        "name": "Portals",
+        "slug": "portals",
+        "description": "You only have 5 seconds to identify the correct LED portal, toss the ball to your teammate, and put it in the hole. As the room is divided into 4 segments, accuracy and team work is a must.",
+        "meta_description": "In Portals, you only have 5 seconds to find the correct LED portal, toss the ball to your teammate, and put it in the hole. Accuracy and team work is a must.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Hand-Eye Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Communication"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "24 Pipes with Neo Pixel Screens"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "25 Touch-Activated Buttons"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "1 Activate Branded Water Filled Ball"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cgge77edq4SM9oBD",
+            "layout": "game",
+            "attributes": {
+              "name": "Wormholes",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/AkICrjsGBPwv61PBPZp9T9QwTDA9uG1sIXjdwc3W.jpg",
+              "cooperative": false,
+              "description": "To have a ball you must first find the ball. Once found, drop it into the green portal and let the games begin! The bottom of each pipe will show you what color you need to find next."
+            }
+          },
+          {
+            "key": "cVnNKKTEPqhCC6PP",
+            "layout": "game",
+            "attributes": {
+              "name": "Jumble",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/g9i2TvUonN48BYIOxjgxwkXWFJpXhJLrtK5d36DP.jpg",
+              "cooperative": false,
+              "description": "Unscramble the letters on the screen as you scramble around the room to decode the secret word. The portals are your only way to spell it out. Avoid spelling errors to win."
+            }
+          },
+          {
+            "key": "c19elbGwpksa0gvI",
+            "layout": "game",
+            "attributes": {
+              "name": "Oddball",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/xdfP5ftJvEuNGQC78gkbf8UpKYPux3IPyaoCDljn.jpg",
+              "cooperative": false,
+              "description": "One of these portals is not like the other. It might be blinking or a different color. Your job is to find the odd man out. Think you found it? Drop the ball in the portal."
+            }
+          },
+          {
+            "key": "cENbKAtwzUFpbHPu",
+            "layout": "game",
+            "attributes": {
+              "name": "Stopwatch",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/CWCpVc2C9Ek2dzjgUpny32Uj2HZDdQ2SkPV2Ktrx.jpg",
+              "cooperative": false,
+              "description": "In this game, time unfortunately is not on your side. Beat the clock and put the ball in the portal to stop time from ticking to the top. It's truly a race against time."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/M4bUe4ORZm97EkEewkwWhXLyvR0MAWwzlW9QDuKl.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/hh9AJ6LwC28RAV5UAge9RADHkt2M2a6qAZlBHwzD.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/MHTkbsTR7qcuWplE8NciWsickSrplRcrBScHcCvH.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/BM1Hqvtc8dJFMLBkQsBdrnY9jROn74q4bH5w8F2x.png",
+        "background": "https://assets.playactivate.com/background-videos/3ZNUNFmOHdGrlmPrM6Ag6pT5KWnIDV1XXMML16PD.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/wK2NiNrYcJl60rTThfuMXhAaRq6mwsvHblU4mYr6.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/q2qkSfS9G89iO2qKiVpmuPn91mVUqDyPxqKsVfm1.gif",
+        "show_featured_games": false,
+        "youtube_id": "QtuOXD38yn0"
+      },
+      {
+        "id": 16,
+        "name": "Press",
+        "slug": "press",
+        "description": "Brimming with multi-colored buttons, Press is a game room full of light-up buttons where you push patterns and master memorization. Don\u2019t worry, you don\u2019t have to tackle the challenge on your own. Your team is there to give you a hand as you press your way to certain victory.",
+        "meta_description": "Press is a light up game room brimming with multi-colored buttons, designed to test your nimbleness with patterns and memorization.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Hand-Eye Coordination"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Strategy"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Communication"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "452 Light-Up Buttons With 3 Rings of LEDS"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "1,356 Total LEDs"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "6 Games with Varying Difficulty Levels"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cf2lSzPHYh28B8al",
+            "layout": "game",
+            "attributes": {
+              "name": "Hundred",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/gda7SjACZVcQzD3B4yomjoRkj8cbsyEjK4f9Owc0.jpg",
+              "cooperative": false,
+              "description": "Go from 0 to 100 as you try to correctly guess the answer to the question on the screen. Press the button to lock it in!"
+            }
+          },
+          {
+            "key": "c89hhGbRDoShU4rZ",
+            "layout": "game",
+            "attributes": {
+              "name": "Link",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/FUEJuGFcSpCJb9LIgUqFkIGSt9qKFzaIP1LcLYjh.jpg",
+              "cooperative": false,
+              "description": "In this game, you're playing matchmaker. Put your memory to the test and remember the colored sequences. Identify the other half of the pair to clear the level."
+            }
+          },
+          {
+            "key": "coEGFE6scBnqxNWS",
+            "layout": "game",
+            "attributes": {
+              "name": "Undercover",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/PILHJqFdTBUnEVTq4pC3OY98uKK4qLTQ8AD8D1OE.jpg",
+              "cooperative": false,
+              "description": "A sequence is hidden in a sea of bright colored buttons. Find it and you win. Careful! Don't be so quick to Push - the pattern can be flipped in any direction."
+            }
+          },
+          {
+            "key": "cZMOU81m1a5Aqqcn",
+            "layout": "game",
+            "attributes": {
+              "name": "Mine",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/hEXccWIRCXOr9C17XtoytIZepNCElN81XdreOpdE.jpg",
+              "cooperative": false,
+              "description": "Strategically place a finite number of blue bomb buttons on the wall to rid the room of lit buttons. Once set, detonate by Pushing the green button trigger and watch as the targets explode."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/NqGhSOAxAIAZaznMctt1p54KRv8rakFvTLlEq3sY.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/YdoIh7aNk3eqNSENe9JwiQttxmpba6SbD54Wg3mM.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/OmXLUuOiouGxaUsnaZvqo0fO4RvomXAynTS17IsH.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/K8stY9hPgn56JDfEbf2FFW6BKeg2PSto09GHBzVR.png",
+        "background": "https://assets.playactivate.com/background-videos/KwTqpYJM3nyqUdmE5HEzUd7f2PuasaC4LMu4A0fK.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/lH3Tokfy8MNW2qFOcosdITF2qciyWhizvtX1T7Yu.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/w1KIT7cfeopi5HNL4zA3Q1Kk8ImzVPowTPENtsh2.gif",
+        "show_featured_games": false,
+        "youtube_id": "XaSpOth0uZ8"
+      },
+      {
+        "id": 18,
+        "name": "Laser",
+        "slug": "laser",
+        "description": "Dip and dodge as you carefully maneuver your way back and forth to the safezone through a changing sequence of lasers. One finger out of place will trip the beam in this laser ops fantasy.",
+        "meta_description": "In Laser, dip and dodge as you carefully maneuver your way back and forth to the safezone through a changing sequence of lasers.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Agility"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Speed"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "180 Straight Lasers"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "3 Thermal Cameras"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "criW0UTKWBpJxRWx",
+            "layout": "game",
+            "attributes": {
+              "name": "Laser Maze",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/puyGwNCaxZLLm8SKBUfzaXw3vV74sYVZZ4QU9npi.jpg",
+              "cooperative": false,
+              "description": "Live like a spy as you make your way to the other side of the room, contorting your body around a wall of lasers intent on catching you. Are you stealthy enough?"
+            }
+          },
+          {
+            "key": "cRGIEERkONCci1L1",
+            "layout": "game",
+            "attributes": {
+              "name": "Photon Rush",
+              "image": "https://res.cloudinary.com/playactivate/image/upload/Twh5IMRSrvrgZaLJ98rMCztoMIBJKSSK3JbCBKCu.jpg",
+              "cooperative": false,
+              "description": "You're under attack! Enemy laser-fire is raining down, putting your team at risk. Luckily, you're strategic. Do your best to dodge the relentless rays and save your team from ultimate doom."
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/ghz6shwWut0lEBDX6n73z86cBOg1l4tMJlANer7j.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/0mQFO1EkpV0Qnf4tYpCrSS9gGipIRBJmISiTFva2.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/e9AMZDH0CzFjheBYaQq5axWJe48HVizDjClIGd25.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/Y93IyTZlfxfmwXVn5bibn28GA35c0KPxtl1Tp9Pr.png",
+        "background": "https://assets.playactivate.com/background-videos/YaneqoBdgigpSZ6rXuUdszC8wfxkxApIwNznAmUd.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/70DL0InZxnFfaL1cvGYG3QT6itnZlnjGX8C8BROg.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/pUBUeQ1zNKKapjDtMOgkW5nhQKAykAUL5v7mDdu5.gif",
+        "show_featured_games": false,
+        "youtube_id": "trViVlKr_7w"
+      },
+      {
+        "id": 19,
+        "name": "Scan",
+        "slug": "scan",
+        "description": "Scan features fast-paced games that require quick reflexes and precision. Players interact with touch screens and scan their RFID wristbands at the room hub to complete challenges and progress through levels.",
+        "meta_description": "Scan features fast-paced games that require quick reflexes and precision. Players interact with touch screens and scan their RFID wristbands at the room hub to complete challenges and progress through levels.",
+        "keys_to_success": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Communication"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Strategy"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Precision"
+            }
+          }
+        ],
+        "features": [
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "8 Touch Screens with Wristband Scanners"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "3 Games with Varying Difficulty Levels"
+            }
+          },
+          {
+            "type": "text-item",
+            "fields": {
+              "value": "Cooperative Mode"
+            }
+          }
+        ],
+        "photos": [],
+        "games": [
+          {
+            "key": "cjKSPzPXNBfllGoy",
+            "layout": "game",
+            "attributes": {
+              "name": "Inside out",
+              "cooperative": false,
+              "description": "The rings around the screen will be filled with sequences of player colours to be memorized. To input their colour, a player needs to scan the reader. Once a scan occurs, the colour sequences will disappear, and players will be tasked with replicating the patterns on each screen by scanning in order from inside to outside.",
+              "image": null
+            }
+          },
+          {
+            "key": "cUA0ofluYHcmTT0g",
+            "layout": "game",
+            "attributes": {
+              "name": "Spot",
+              "cooperative": false,
+              "description": "Each screen will have an image that has exactly one difference in comparison to the other images in the room. Players must select each one by pressing on the differences.",
+              "image": null
+            }
+          },
+          {
+            "key": "cJg5rCysYrgBpeLC",
+            "layout": "game",
+            "attributes": {
+              "name": "Supermarket",
+              "cooperative": false,
+              "description": "On a screen, players will be given a group of items in their colours that they need to find in the room. Once an item is found, the person of that colour will need to select it on the screen and then scan the corresponding reader to transfer it to their band, before depositing it at the goal screen by scanning that reader. If all items of an order are not completed in time, the players lose the game.",
+              "image": null
+            }
+          }
+        ],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/INQHdB4QNZ1OFysVZSCzj1m36vc11bgW0NSzdYJT.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/1utYHMHbGiA9pUxk2M7WNnuxc5gZXDbFoZtPn8xE.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/gWp55T1KWiSVKA5NfTMvzJa82Wc5mLMuw6hnhaOx.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/1SF4ay1PtVAWKm0qQshiX9yx6ed2o8nc8o7Vnr8G.png",
+        "background": "https://assets.playactivate.com/background-videos/EaSsAzPmWiMt3u51RAexwZ6sMz7FHXO2pLSR25Ay.mp4",
+        "background_poster": "https://res.cloudinary.com/playactivate/image/upload/N319RTikxLLCwi4fKcLnxfWiY6xTcTDgmms3Ij2R.jpg",
+        "preview": "https://res.cloudinary.com/playactivate/image/upload/9Ye3eNMuyHOPx8STTqoIsCcUTFA7xa2rUvECa40U.png",
+        "show_featured_games": false,
+        "youtube_id": "jYPjanob1Ao"
+      },
+      {
+        "id": 20,
+        "name": "Grip",
+        "slug": "grip",
+        "description": null,
+        "meta_description": null,
+        "keys_to_success": [],
+        "features": [],
+        "photos": [],
+        "games": [],
+        "hero_title": "https://res.cloudinary.com/playactivate/image/upload/qJFm2VlF6QSHPntKxMaw5Ia9t3Ia95TyRpPQN7IK.png",
+        "display_image": "https://res.cloudinary.com/playactivate/image/upload/DCzOiTjDYgLWacVYeUMkEvPwdoeIVpgdDBiRcHlo.jpg",
+        "illustration": "https://res.cloudinary.com/playactivate/image/upload/2GN1u5nfwtLdOquvTjsNlom0VU5DKG1PF4UczbZv.png",
+        "icon": "https://res.cloudinary.com/playactivate/image/upload/qEWxxPlvK7yEYgZhLBLFUABbBmAgicTdoBDewkew.png",
+        "background": null,
+        "background_poster": null,
+        "preview": null,
+        "show_featured_games": false,
+        "youtube_id": "CaNEmuLMJ8A"
       }
-    ]
+    ],
+    "leaderboard": {
+      "0": {
+        "playerName": "TheCheetahGirls2",
+        "rank": 7,
+        "score": 1766813
+      },
+      "1": {
+        "playerName": "TheCheetahGirls1",
+        "rank": 7,
+        "score": 1736644
+      },
+      "2": {
+        "playerName": "StormingFool",
+        "rank": 6,
+        "score": 1421663
+      },
+      "3": {
+        "playerName": "INeedMoreTime2Think",
+        "rank": 6,
+        "score": 1407956
+      },
+      "4": {
+        "playerName": "Juicy Jessica",
+        "rank": 6,
+        "score": 1365932
+      }
+    },
+    "isLoyalty": true
   },
-  "url": "/scores/wes-demo/42/pointe-orlando/scores",
-  "version": "test"
+  "url": "/scores/gibsonleader/41/orlando%20%28pointe%20orlando%29/scores",
+  "version": "fixture"
 }

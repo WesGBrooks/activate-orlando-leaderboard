@@ -1,15 +1,36 @@
 # Activate Orlando Friends Leaderboard
 
-A tiny FastAPI app so Wes and friends can compare [Activate](https://playactivate.com) scores for **Orlando (Pointe Orlando)** in one place.
+A small FastAPI app so friends can compare [Activate](https://playactivate.com) scores for **Orlando (Pointe Orlando)** in one place.
 
-Public site focus:
-- Location id **42**, slug **`pointe-orlando`**
-- Data source: the same public `/scores` pages a browser uses on [playactivate.com/scores](https://playactivate.com/scores)
-- No private mobile APIs, no auth bypass
+## Location IDs (important)
 
-## Architecture (short)
+Activate exposes two related location identifiers for Pointe Orlando:
 
-One Python service: **FastAPI + Jinja2 + SQLite cache + JSON friends file**. Friends are ranked by Orlando location total score. The preferred way to bind a player is pasting their public scores URL (or player id) after looking them up once on Activate. Optional email search is implemented with CSRF/session bootstrap, but Cloudflare often blocks datacenter IPs — when live fetches fail, the app falls back to cached or demo fixture data so the UI still works.
+| Role | Value | Where it appears |
+|---|---|---|
+| Site / picker location | **42** · slug `pointe-orlando` | Location picker / site record |
+| Scores URL location | **41** · name `orlando (pointe orlando)` | Public `/scores/...` and `/rewards/...` URLs |
+
+Refresh prefers **GET on a friend’s known `scores_url`** (no rebuild/re-encode). GibsonLeader is seeded that way.
+
+Seed player:
+- Display name: **GibsonLeader**
+- Player slug: `gibsonleader`
+- Email: `wesgbrooks@gmail.com`
+- Scores: `https://playactivate.com/scores/gibsonleader/41/orlando%20%28pointe%20orlando%29/scores`
+- Rewards: `https://playactivate.com/scores/gibsonleader/41/orlando%20%28pointe%20orlando%29/rewards`
+
+## Architecture
+
+One Python service: **FastAPI + Jinja2 + SQLite cache + JSON friends file**.
+
+Supported fields from public Activate pages:
+- display name, profile rank, player rank, standing, yearly rank
+- total / yearly score, levels beaten, stars, coins
+- per-game bests for Hoops, Grid, Hide, Mega Grid, Mega Laser, Control, Strike, Portals, Press, Scan
+- rewards: name, cost, stock, location id, status
+
+No private mobile APIs and no auth bypass — only public website pages.
 
 ## Quick start (local)
 
@@ -38,65 +59,53 @@ docker run --rm -p 8000:8000 -e FORCE_DEMO_MODE=true activate-orlando-leaderboar
 
 ## Adding friends
 
-1. Visit https://playactivate.com/scores and search your player name/email.
-2. Open the **Pointe Orlando** player page.
-3. Copy the URL (shape: `/scores/{player}/{scoreLocation}/pointe-orlando/scores`).
-4. In this app, use **Add a friend** and paste that URL (or just the `{player}` id).
+1. Visit https://playactivate.com/scores and look up a player.
+2. Open the **Pointe Orlando** scores page (URL location id **41**).
+3. Copy the URL and paste it into **Add a friend** (or put the player slug alone).
 
-You can also edit `data/friends.json` directly. Wes is seeded with email `wesgbrooks@gmail.com` as a placeholder until a scores URL/player id is pasted.
+You can also edit `data/friends.json`. GibsonLeader is already seeded with the public scores + rewards URLs.
 
 Optional: set `ADMIN_TOKEN` so add/remove/refresh require a shared secret.
 
 ## Scoring refresh + caching
 
-- Scores are fetched from public Activate pages with a project User-Agent.
-- Results are cached in SQLite (`CACHE_DB_PATH`) for `CACHE_TTL_SECONDS` (default 10 minutes).
-- Requests are rate-limited (~1.25s apart).
+- Preferred refresh path: GET the stored public scores URL as-is.
+- Optional rewards GET when `FETCH_REWARDS=true`.
+- Results cached in SQLite (`CACHE_DB_PATH`) for `CACHE_TTL_SECONDS` (default 10 minutes).
+- Requests are rate-limited.
 - If Activate/Cloudflare blocks the host, stale cache or demo fixtures are shown.
 
-Optional `ACTIVATE_COOKIE`: paste a browser cookie string (including `cf_clearance` if needed) into Railway env vars when your deploy IP is challenged. Prefer the paste-URL path over depending on cookies.
+Optional `ACTIVATE_COOKIE`: paste a browser cookie string into Railway env vars when your deploy IP is challenged. Prefer the paste-URL path over depending on cookies.
 
 ## Deploy on Railway (primary)
-
-Cost: Railway hobby/trial is plenty for a private friends board (often free credits / a few dollars).
 
 1. Push this repo to GitHub.
 2. In [Railway](https://railway.app): **New Project → Deploy from GitHub repo**.
 3. Railway will detect `Dockerfile` / `railway.toml`.
-4. Set variables (Dashboard → Variables), at least:
+4. Set variables (at least):
 
 | Variable | Example | Notes |
 |---|---|---|
-| `FORCE_DEMO_MODE` | `false` | `true` until friends have scores URLs |
+| `FORCE_DEMO_MODE` | `false` | `true` until live fetches work |
 | `DEMO_MODE_FALLBACK` | `true` | Keep UI usable if Activate blocks |
 | `CACHE_TTL_SECONDS` | `600` | 5–15 min recommended |
 | `FRIENDS_PATH` | `/app/data/friends.json` | Attach a volume for persistence |
 | `CACHE_DB_PATH` | `/app/data/cache.sqlite3` | Same volume |
+| `FETCH_REWARDS` | `true` | Also GET public rewards pages |
 | `ADMIN_TOKEN` | (secret) | Optional form protection |
 | `ACTIVATE_COOKIE` | (optional) | Only if Cloudflare challenges your IP |
-| `HTTP_USER_AGENT` | see `.env.example` | Identifies this open-source app |
 
 5. Generate a public domain (Railway → Settings → Networking).
 6. Health check path: `/healthz`.
 
-CLI alternative:
-
 ```bash
-npm i -g @railway/cli   # or: brew install railway
+npm i -g @railway/cli
 railway login
 railway init
 railway up
 railway variables set FORCE_DEMO_MODE=true DEMO_MODE_FALLBACK=true
 railway domain
 ```
-
-### One-click style
-
-If the repo is public on GitHub:
-
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template?template=https://github.com/WesGBrooks/activate-orlando-leaderboard)
-
-(You can also create an empty Railway project and point it at this repo’s Dockerfile.)
 
 ## Tests
 
@@ -107,7 +116,3 @@ pytest -q
 ## License
 
 MIT — see `LICENSE`.
-
-## Also possible
-
-The same Dockerfile can run on AWS App Runner (or a Lambda Function URL with an adapter). Railway is the supported path for this project so maintainers don’t need AWS CLI/IAM setup.

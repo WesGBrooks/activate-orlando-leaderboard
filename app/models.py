@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from typing import Any
-from urllib.parse import unquote, urlparse
+from urllib.parse import quote, unquote, urlparse
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -19,6 +19,7 @@ class Friend(BaseModel):
     score_location: str | None = None
     location_name: str | None = None
     scores_url: str | None = None
+    rewards_url: str | None = None
     notes: str | None = None
     created_at: datetime = Field(default_factory=utcnow)
 
@@ -30,7 +31,15 @@ class Friend(BaseModel):
         value = value.strip().lower()
         return value or None
 
-    @field_validator("player_id", "score_location", "location_name", "display_name", "notes")
+    @field_validator(
+        "player_id",
+        "score_location",
+        "location_name",
+        "display_name",
+        "notes",
+        "scores_url",
+        "rewards_url",
+    )
     @classmethod
     def strip_text(cls, value: str | None) -> str | None:
         if value is None:
@@ -40,17 +49,44 @@ class Friend(BaseModel):
 
 
 class FriendsFile(BaseModel):
+    # Site location record id (picker), distinct from scores URL location id.
     location_id: int = 42
     location_slug: str = "pointe-orlando"
+    score_location_id: int = 41
+    score_location_name: str = "orlando (pointe orlando)"
     friends: list[Friend] = Field(default_factory=list)
+
+
+class LevelScore(BaseModel):
+    game_id: int
+    level: int
+    score: int
+    room_id: int | None = None
+    game_slug: str | None = None
+    game_name: str | None = None
 
 
 class GameBest(BaseModel):
     slug: str
     name: str
+    room_id: int | None = None
     best_score: int | None = None
     levels_completed: int | None = None
     rank: int | None = None
+    level_scores: list[LevelScore] = Field(default_factory=list)
+
+
+class Reward(BaseModel):
+    id: int | None = None
+    name: str
+    slug: str | None = None
+    cost: int | None = None
+    in_stock: bool | None = None
+    location_id: int | None = None
+    status: int | str | None = None
+    description: str | None = None
+    minimum_rank: int | None = None
+    limit_per_player: int | None = None
 
 
 class PlayerSnapshot(BaseModel):
@@ -59,15 +95,29 @@ class PlayerSnapshot(BaseModel):
     player_id: str | None = None
     player_name: str | None = None
     location_name: str | None = None
+    location_id: int | None = None
+
+    # Ranks / standing
+    profile_rank: int | None = None  # player.player.rank (visible profile rank)
+    player_rank: int | None = None  # playerLocation.playerRank
+    standing: int | None = None  # leaderboard position
+    yearly_rank: int | None = None
+    overall_rank: int | None = None  # alias kept for older UI; mirrors profile_rank
+
+    # Scores / progress
     total_score: int | None = None
-    standing: int | None = None
+    yearly_score: int | None = None
     levels_beat: int | None = None
     level_count: int | None = None
     coins: int | None = None
     stars: int | None = None
-    overall_rank: int | None = None
+
     games: list[GameBest] = Field(default_factory=list)
+    level_scores: list[LevelScore] = Field(default_factory=list)
+    rewards: list[Reward] = Field(default_factory=list)
+
     scores_url: str | None = None
+    rewards_url: str | None = None
     fetched_at: datetime | None = None
     cache_hit: bool = False
     source: str = "live"  # live | cache | demo | error
@@ -83,7 +133,7 @@ class ScoresUrlParts(BaseModel):
 
 
 def parse_scores_url(url: str) -> ScoresUrlParts | None:
-    """Parse Activate public player/game scores URLs."""
+    """Parse Activate public player/game scores or rewards URLs."""
     raw = (url or "").strip()
     if not raw:
         return None
@@ -114,8 +164,35 @@ def build_player_scores_path(
     score_location: str,
     location_name: str,
     game: str | None = None,
+    *,
+    kind: str = "scores",
 ) -> str:
-    base = f"/scores/{player}/{score_location}/{location_name}"
+    """Build a scores/rewards path, URL-encoding the location name segment."""
+    loc = quote(location_name, safe="")
+    base = f"/scores/{quote(player, safe='')}/{quote(str(score_location), safe='')}/{loc}"
     if game:
-        return f"{base}/{game}/scores"
-    return f"{base}/scores"
+        return f"{base}/{quote(game, safe='')}/{kind}"
+    return f"{base}/{kind}"
+
+
+def rewards_url_from_scores_url(scores_url: str) -> str | None:
+    raw = (scores_url or "").strip()
+    if not raw:
+        return None
+    if raw.endswith("/scores"):
+        return raw[: -len("scores")] + "rewards"
+    if raw.endswith("/scores/"):
+        return raw[: -len("scores/")] + "rewards"
+    parsed = parse_scores_url(raw)
+    if not parsed:
+        return None
+    path = build_player_scores_path(
+        parsed.player,
+        parsed.score_location,
+        parsed.location_name,
+        kind="rewards",
+    )
+    if raw.startswith("http"):
+        origin = f"{urlparse(raw).scheme}://{urlparse(raw).netloc}"
+        return origin + path
+    return path

@@ -18,16 +18,22 @@ from app.models import (
     PlayerSnapshot,
     build_player_scores_path,
     parse_scores_url,
+    rewards_url_from_scores_url,
     utcnow,
 )
-from app.parsing import extract_inertia_page, parse_player_page
+from app.parsing import extract_inertia_page, parse_player_page, parse_rewards_page
 
 logger = logging.getLogger(__name__)
 _XSRF_RE = re.compile(r"XSRF-TOKEN=([^;]+)")
 
 
 class ActivateClient:
-    """Fetch Activate public scores pages with caching and polite rate limits."""
+    """Fetch Activate public scores pages with caching and polite rate limits.
+
+    Prefer GET on a friend's known `scores_url` exactly as stored (no rebuild /
+    re-encode). Scores URLs for Pointe Orlando use location id 41 even though the
+    site location record / picker id is 42.
+    """
 
     def __init__(self, settings: Settings, cache: ScoreCache) -> None:
         self.settings = settings
@@ -80,25 +86,18 @@ class ActivateClient:
         return (
             f"player:{friend.player_id}:"
             f"{friend.score_location}:"
-            f"{friend.location_name or self.settings.activate_location_slug}"
+            f"{friend.location_name or self.settings.activate_score_location_name}"
         )
 
-    def _scores_path(self, friend: Friend) -> str | None:
+    def _scores_target(self, friend: Friend) -> str | None:
+        """Return the URL/path to GET. Prefer the stored scores_url verbatim."""
         if friend.scores_url:
-            parts = parse_scores_url(friend.scores_url)
-            if parts:
-                return build_player_scores_path(
-                    parts.player,
-                    parts.score_location,
-                    parts.location_name,
-                    parts.game,
-                )
             return friend.scores_url
         if friend.player_id:
             return build_player_scores_path(
                 friend.player_id,
-                friend.score_location or str(self.settings.activate_location_id),
-                friend.location_name or self.settings.activate_location_slug,
+                friend.score_location or str(self.settings.activate_score_location_id),
+                friend.location_name or self.settings.activate_score_location_name,
             )
         return None
 
@@ -110,6 +109,25 @@ class ActivateClient:
         return await client.get(
             url, headers=self._headers(inertia=inertia), follow_redirects=True
         )
+
+    async def _fetch_page(self, client: httpx.AsyncClient, target: str) -> dict[str, Any]:
+        resp = await self._get(client, target, inertia=True)
+        page = None
+        if resp.status_code == 200:
+            try:
+                page = resp.json()
+            except Exception:  # noqa: BLE001
+                page = extract_inertia_page(resp.text)
+        if page is None:
+            resp = await self._get(client, target, inertia=False)
+            if resp.status_code == 200:
+                page = extract_inertia_page(resp.text)
+        if not page:
+            raise RuntimeError(
+                f"Activate returned HTTP {resp.status_code} "
+                "(Cloudflare challenge or empty page)"
+            )
+        return page
 
     async def fetch_locations(self) -> list[dict[str, Any]]:
         if self.settings.force_demo_mode:
@@ -137,6 +155,8 @@ class ActivateClient:
                 "name": "Orlando (Pointe Orlando)",
                 "slug": "pointe-orlando",
                 "url": "https://playactivate.com/pointe-orlando",
+                "score_location_id": 41,
+                "score_location_name": "orlando (pointe orlando)",
             }
         ]
 
@@ -153,11 +173,11 @@ class ActivateClient:
         if self.settings.force_demo_mode:
             return self._demo_snapshot(friend)
 
-        path = self._scores_path(friend)
-        if not path and friend.email:
-            path = await self.try_search_player(friend.email)
+        target = self._scores_target(friend)
+        if not target and friend.email:
+            target = await self.try_search_player(friend.email)
 
-        if not path:
+        if not target:
             stale = self.cache.get_stale(key)
             if stale:
                 snap = PlayerSnapshot.model_validate(stale)
@@ -183,38 +203,35 @@ class ActivateClient:
                 timeout=self.settings.http_timeout_seconds,
                 cookies=self._cookies(),
             ) as client:
-                resp = await self._get(client, path, inertia=True)
-                page = None
-                if resp.status_code == 200:
-                    try:
-                        page = resp.json()
-                    except Exception:  # noqa: BLE001
-                        page = extract_inertia_page(resp.text)
-                if page is None:
-                    resp = await self._get(client, path, inertia=False)
-                    if resp.status_code == 200:
-                        page = extract_inertia_page(resp.text)
-                if not page:
-                    raise RuntimeError(
-                        f"Activate returned HTTP {resp.status_code} "
-                        "(Cloudflare challenge or empty page)"
-                    )
-
+                page = await self._fetch_page(client, target)
                 scores_url = friend.scores_url or (
-                    path
-                    if path.startswith("http")
-                    else f"{self.settings.activate_base_url}{path}"
+                    target
+                    if target.startswith("http")
+                    else f"{self.settings.activate_base_url}{target}"
                 )
+                rewards_url = friend.rewards_url or rewards_url_from_scores_url(scores_url)
+                rewards = []
+                if self.settings.fetch_rewards and rewards_url:
+                    try:
+                        rewards_page = await self._fetch_page(client, rewards_url)
+                        rewards = parse_rewards_page(rewards_page)
+                    except Exception as exc:  # noqa: BLE001
+                        logger.warning("rewards fetch failed for %s: %s", friend.display_name, exc)
+
                 snap = parse_player_page(
                     page,
                     friend_id=friend.id,
                     display_name=friend.display_name,
                     scores_url=scores_url,
+                    rewards_url=rewards_url,
+                    rewards=rewards,
                     cache_hit=False,
                     source="live",
                 )
                 if not snap.player_id and friend.player_id:
                     snap.player_id = friend.player_id
+                if not snap.rewards_url and rewards_url:
+                    snap.rewards_url = rewards_url
                 self.cache.set(key, snap.model_dump(mode="json"))
                 return snap
         except Exception as exc:  # noqa: BLE001
@@ -233,6 +250,7 @@ class ActivateClient:
                 display_name=friend.display_name,
                 player_id=friend.player_id,
                 scores_url=friend.scores_url,
+                rewards_url=friend.rewards_url,
                 source="error",
                 error=str(exc),
                 fetched_at=utcnow(),
@@ -297,8 +315,8 @@ class ActivateClient:
                     if isinstance(first, str):
                         return build_player_scores_path(
                             first,
-                            str(self.settings.activate_location_id),
-                            self.settings.activate_location_slug,
+                            str(self.settings.activate_score_location_id),
+                            self.settings.activate_score_location_name,
                         )
                     if isinstance(first, dict):
                         player = (
@@ -312,11 +330,11 @@ class ActivateClient:
                                 str(player),
                                 str(
                                     first.get("locationId")
-                                    or self.settings.activate_location_id
+                                    or self.settings.activate_score_location_id
                                 ),
                                 str(
                                     first.get("locationName")
-                                    or self.settings.activate_location_slug
+                                    or self.settings.activate_score_location_name
                                 ),
                             )
                 url = data.get("url") or ""
@@ -356,6 +374,7 @@ class ActivateClient:
             player_id=friend.player_id or match.get("player_id"),
             player_name=match.get("player_name") or friend.display_name,
             location_name=self.settings.activate_location_name,
+            location_id=self.settings.activate_score_location_id,
             total_score=match.get("total_score"),
             standing=match.get("standing"),
             levels_beat=match.get("levels_beat"),
@@ -363,8 +382,13 @@ class ActivateClient:
             coins=match.get("coins"),
             stars=match.get("stars"),
             overall_rank=match.get("overall_rank"),
+            profile_rank=match.get("profile_rank") or match.get("overall_rank"),
+            player_rank=match.get("player_rank"),
+            yearly_rank=match.get("yearly_rank"),
+            yearly_score=match.get("yearly_score"),
             games=games,
             scores_url=friend.scores_url,
+            rewards_url=friend.rewards_url,
             fetched_at=utcnow(),
             cache_hit=False,
             source="demo",

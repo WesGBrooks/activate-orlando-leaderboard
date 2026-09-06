@@ -118,7 +118,8 @@ async def add_friend(
             display_name=display_name,
             identifier=identifier,
             location_slug=settings.activate_location_slug,
-            location_id=str(settings.activate_location_id),
+            location_id=str(settings.activate_score_location_id),
+            location_name=settings.activate_score_location_name,
         )
     except ValueError as exc:
         return RedirectResponse(url=f"/?error={exc}", status_code=303)
@@ -166,6 +167,8 @@ async def api_leaderboard(
             "id": settings.activate_location_id,
             "slug": settings.activate_location_slug,
             "name": settings.activate_location_name,
+            "score_location_id": settings.activate_score_location_id,
+            "score_location_name": settings.activate_score_location_name,
         },
         "players": [snap.model_dump(mode="json") for snap in ranked],
     }
