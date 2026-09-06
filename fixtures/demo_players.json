@@ -1,0 +1,72 @@
+[
+  {
+    "id": "wes",
+    "email": "wesgbrooks@gmail.com",
+    "player_id": "wes-demo",
+    "player_name": "Wes",
+    "total_score": 128400,
+    "standing": 42,
+    "levels_beat": 18,
+    "level_count": 48,
+    "coins": 1200,
+    "stars": 7,
+    "overall_rank": 1500,
+    "game_scores": {
+      "arena": 9800,
+      "climb": 7200,
+      "grid": 11000,
+      "hoops": 6400,
+      "mega-laser": 15400,
+      "control": 8800,
+      "mega-grid": 13100,
+      "strike": 9100,
+      "portals": 10200
+    }
+  },
+  {
+    "id": "friend-a",
+    "player_id": "arcade-ace",
+    "player_name": "ArcadeAce",
+    "total_score": 141200,
+    "standing": 27,
+    "levels_beat": 22,
+    "level_count": 48,
+    "coins": 1500,
+    "stars": 9,
+    "overall_rank": 980,
+    "game_scores": {
+      "arena": 12000,
+      "climb": 8000,
+      "grid": 12500,
+      "hoops": 7000,
+      "mega-laser": 17000,
+      "control": 9400,
+      "mega-grid": 14000,
+      "strike": 10000,
+      "portals": 11100
+    }
+  },
+  {
+    "id": "friend-b",
+    "player_id": "laser-luna",
+    "player_name": "LaserLuna",
+    "total_score": 99000,
+    "standing": 88,
+    "levels_beat": 14,
+    "level_count": 48,
+    "coins": 800,
+    "stars": 4,
+    "overall_rank": 3200,
+    "game_scores": {
+      "arena": 7000,
+      "climb": 5000,
+      "grid": 8000,
+      "hoops": 4500,
+      "mega-laser": 12000,
+      "control": 6000,
+      "mega-grid": 9000,
+      "strike": 7500,
+      "portals": 8200
+    }
+  }
+]

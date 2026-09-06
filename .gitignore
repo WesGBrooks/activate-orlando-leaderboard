@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.env.local
+
+# App data / caches
+data/cache.sqlite3
+data/*.sqlite3
+!data/friends.json
+!data/.gitkeep
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Node leftovers from probing
+node_modules/
+
+# Docker / local
+*.log

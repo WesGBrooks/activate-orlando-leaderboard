@@ -1,0 +1,16 @@
+{
+  "location_id": 42,
+  "location_slug": "pointe-orlando",
+  "friends": [
+    {
+      "id": "wes",
+      "display_name": "Wes",
+      "player_id": null,
+      "email": "wesgbrooks@gmail.com",
+      "score_location": "42",
+      "location_name": "pointe-orlando",
+      "scores_url": null,
+      "notes": "Seed placeholder. Paste Wes public Pointe Orlando scores URL after one manual lookup on playactivate.com/scores."
+    }
+  ]
+}

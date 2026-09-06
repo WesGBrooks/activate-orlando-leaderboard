@@ -1,0 +1,72 @@
+{
+  "component": "Site/Scores/Player",
+  "props": {
+    "player": {
+      "id": "wes-demo",
+      "locationName": "pointe-orlando",
+      "player": {
+        "id": "wes-demo",
+        "playerName": "Wes",
+        "coins": 1200,
+        "stars": 7,
+        "rank": 1500
+      },
+      "playerLocation": {
+        "totalScore": 128400,
+        "standing": 42,
+        "scores": [
+          {
+            "gameSlug": "mega-laser",
+            "gameName": "Mega Laser",
+            "highScore": 15400
+          },
+          {
+            "gameSlug": "mega-laser",
+            "gameName": "Mega Laser",
+            "highScore": 12000
+          },
+          {
+            "gameSlug": "arena",
+            "gameName": "Arena",
+            "highScore": 9800
+          },
+          {
+            "gameSlug": "grid",
+            "gameName": "Grid",
+            "highScore": 11000
+          },
+          {
+            "gameSlug": "control",
+            "gameName": "Control",
+            "highScore": 8800
+          }
+        ]
+      },
+      "location": {
+        "levelCount": 48,
+        "name": "Orlando (Pointe Orlando)",
+        "slug": "pointe-orlando"
+      }
+    },
+    "games": [
+      {
+        "slug": "mega-laser",
+        "name": "Mega Laser"
+      },
+      {
+        "slug": "arena",
+        "name": "Arena"
+      },
+      {
+        "slug": "grid",
+        "name": "Grid"
+      },
+      {
+        "slug": "control",
+        "name": "Control"
+      }
+    ]
+  },
+  "url": "/scores/wes-demo/42/pointe-orlando/scores",
+  "version": "test"
+}
