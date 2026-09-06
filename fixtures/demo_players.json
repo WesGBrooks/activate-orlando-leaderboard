@@ -74,6 +74,30 @@
     }
   },
   {
+    "id": "yourfriendlyneighborhoodtherapist",
+    "email": "reyrivera09@gmail.com",
+    "player_id": "yourfriendlyneighborhoodtherapist",
+    "player_name": "yourfriendlyneighborhoodtherapist",
+    "total_score": 207195,
+    "standing": 893,
+    "levels_beat": 64,
+    "level_count": 480,
+    "coins": 166,
+    "stars": 8,
+    "overall_rank": 8,
+    "profile_rank": 8,
+    "player_rank": 8,
+    "yearly_rank": 893,
+    "yearly_score": 207195,
+    "game_scores": {
+      "hoops": 8000,
+      "grid": 7500,
+      "control": 9000,
+      "strike": 8500,
+      "scan": 6000
+    }
+  },
+  {
     "id": "friend-a",
     "player_id": "arcade-ace",
     "player_name": "ArcadeAce",

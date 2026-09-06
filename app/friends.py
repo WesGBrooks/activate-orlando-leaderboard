@@ -44,14 +44,13 @@ KEVIN_REWARDS_URL = (
     "orlando%20(pointe%20orlando)/rewards"
 )
 
-REY_PENDING_NOTES = (
-    "PENDING Wes pick — email ReyRivera09@gmail.com is AMBIGUOUS. "
-    "Do NOT auto-resolve. Candidates: "
-    "(1) Amalikite https://playactivate.com/scores/Amalikite/41/orlando%20(pointe%20orlando)/scores "
-    "(rank 2, Orlando #21363, score 74727, levels 31/480, 141 coins); "
-    "(2) yourfriendlyneighborhoodtherapist "
-    "https://playactivate.com/scores/yourfriendlyneighborhoodtherapist/41/orlando%20(pointe%20orlando)/scores "
-    "(rank 8, Orlando #893, score 207195, levels 64/480, 166 coins)."
+THERAPIST_SCORES_URL = (
+    "https://playactivate.com/scores/yourfriendlyneighborhoodtherapist/41/"
+    "orlando%20(pointe%20orlando)/scores"
+)
+THERAPIST_REWARDS_URL = (
+    "https://playactivate.com/scores/yourfriendlyneighborhoodtherapist/41/"
+    "orlando%20(pointe%20orlando)/rewards"
 )
 
 
@@ -119,16 +118,24 @@ DEFAULT_FRIENDS = FriendsFile(
             ),
         ),
         Friend(
-            id="reyrivera09",
-            display_name="ReyRivera09",
+            id="yourfriendlyneighborhoodtherapist",
+            display_name="yourfriendlyneighborhoodtherapist",
             email="reyrivera09@gmail.com",
+            player_id="yourfriendlyneighborhoodtherapist",
             score_location=ORLANDO_SCORE_LOCATION,
             location_name=ORLANDO_SCORE_LOCATION_NAME,
-            pending_resolution=True,
-            notes=REY_PENDING_NOTES,
+            scores_url=THERAPIST_SCORES_URL,
+            rewards_url=THERAPIST_REWARDS_URL,
+            pending_resolution=False,
+            notes=(
+                "Confirmed by Wes: ReyRivera09@gmail.com → yourfriendlyneighborhoodtherapist "
+                "(NOT Amalikite). Live snapshot: rank 8, Orlando #893, score 207195, "
+                "levels 64/480, coins 166. Refresh via GET on scores_url."
+            ),
         ),
     ],
 )
+
 
 
 class FriendsStore:
@@ -141,25 +148,32 @@ class FriendsStore:
             self._migrate_seed_if_needed()
 
     def _migrate_seed_if_needed(self) -> None:
-        """Upgrade Gibson/Tiki/Kevin seeds and keep Rey as an ambiguous placeholder."""
+        """Upgrade seed friends to confirmed Pointe Orlando scores URLs."""
         data = self.load()
         changed = False
         seed_by_id = {f.id: f for f in DEFAULT_FRIENDS.friends}
+        therapist = seed_by_id["yourfriendlyneighborhoodtherapist"]
 
-        # Replace known seed ids with the canonical DEFAULT entries.
         for idx, friend in enumerate(list(data.friends)):
             if friend.id in seed_by_id:
                 canonical = seed_by_id[friend.id]
-                # Always refresh resolved handle URLs / pending Rey placeholder.
-                if friend.id in {"gibsonleader", "tikimantim", "heavenlykevint", "reyrivera09"}:
-                    if friend.model_dump(exclude={"created_at"}) != canonical.model_dump(
-                        exclude={"created_at"}
-                    ):
-                        data.friends[idx] = canonical.model_copy(
-                            deep=True,
-                            update={"created_at": friend.created_at},
-                        )
-                        changed = True
+                if friend.model_dump(exclude={"created_at"}) != canonical.model_dump(
+                    exclude={"created_at"}
+                ):
+                    data.friends[idx] = canonical.model_copy(
+                        deep=True,
+                        update={"created_at": friend.created_at},
+                    )
+                    changed = True
+            elif friend.id == "reyrivera09" or (
+                friend.email == "reyrivera09@gmail.com"
+                and (friend.pending_resolution or friend.player_id != therapist.player_id)
+            ):
+                data.friends[idx] = therapist.model_copy(
+                    deep=True,
+                    update={"created_at": friend.created_at},
+                )
+                changed = True
             elif friend.id == "wes" or friend.email == "wesgbrooks@gmail.com":
                 data.friends[idx] = seed_by_id["gibsonleader"].model_copy(deep=True)
                 changed = True

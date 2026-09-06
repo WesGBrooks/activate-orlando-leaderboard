@@ -59,20 +59,20 @@ docker run --rm -p 8000:8000 -e FORCE_DEMO_MODE=true activate-orlando-leaderboar
 
 ## Adding friends
 
-Seeded Orlando (Pointe Orlando) friends:
+Seeded Orlando (Pointe Orlando) friends — all location id **41** / `orlando (pointe orlando)`:
 
 | Friend | Binding | Refresh |
 |---|---|---|
-| **GibsonLeader** | scores URL (`gibsonleader` / location **41**) | GET `scores_url` |
-| **TikimanTim** | confirmed scores URL (was handle Tikimantim) | GET `scores_url` |
-| **HeavenlyKevinT** | confirmed scores URL | GET `scores_url` |
-| **ReyRivera09** | email only — **PENDING Wes** (ambiguous: Amalikite vs yourfriendlyneighborhoodtherapist) | no auto-resolve |
+| **GibsonLeader** | Wes · `wesgbrooks@gmail.com` · scores URL | GET |
+| **TikimanTim** | confirmed scores URL | GET |
+| **HeavenlyKevinT** | confirmed scores URL | GET |
+| **yourfriendlyneighborhoodtherapist** | ReyRivera09@gmail.com → confirmed scores URL (not Amalikite) | GET |
 
-Friends config supports a mix of **scores URLs**, **handles**, and **emails**. Handles/URLs refresh via GET. Emails resolve once via Activate’s public search *unless* `pending_resolution` is set (Rey).
+Friends config supports **scores URLs**, **handles**, and **emails**. Prefer pasting a scores URL or handle so refresh can GET directly.
 
 1. Visit https://playactivate.com/scores and look up a player.
 2. Open the **Pointe Orlando** scores page (URL location id **41**).
-3. Copy the URL and paste it into **Add a friend**, or enter a handle / email.
+3. Copy the URL into **Add a friend**, or enter a handle / email.
 
 You can also edit `data/friends.json`. Optional: set `ADMIN_TOKEN` so add/remove/refresh require a shared secret.
 
