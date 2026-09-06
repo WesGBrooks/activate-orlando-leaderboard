@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <p class="pill">Pointe Orlando · Activate</p>
+  <h1 class="brand">Activate Orlando</h1>
+  <p class="tagline">Friends leaderboard for {{ location_name }}. Paste a public scores URL once — we prefer GET on that exact URL (scores location id 41 for Pointe Orlando).</p>
+  <div class="meta">
+    <span class="pill">Cache {{ cache_ttl // 60 }} min</span>
+    <span class="pill">Public scores only</span>
+    <span class="pill">Railway-ready</span>
+  </div>
+</section>
+
+{% if flash %}<div class="flash">{{ flash }}</div>{% endif %}
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+{% if demoish %}
+<div class="demo-banner">
+  Showing demo/fallback data for at least one friend. Bind real players by pasting their
+  <code>/scores/{player}/41/orlando%20(pointe%20orlando)/scores</code> URL below.
+</div>
+{% endif %}
+
+<section class="panel">
+  <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center;">
+    <h2 style="margin:0;">Leaderboard</h2>
+    <form method="post" action="/refresh" class="inline">
+      <input type="password" name="admin_token" placeholder="Admin token (if set)" />
+      <button type="submit" class="ghost">Refresh now</button>
+    </form>
+  </div>
+  <div class="table-wrap" style="margin-top:0.75rem;">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th>Total</th>
+          <th>Yearly</th>
+          <th>Standing</th>
+          <th>Ranks</th>
+          <th>Levels</th>
+          <th>★ / coins</th>
+          {% for col in game_columns %}<th>{{ col }}</th>{% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td class="rank">{{ row.rank }}</td>
+          <td>
+            <div class="name">{{ row.snap.display_name }}</div>
+            <div class="sub">
+              {% if row.snap.player_name and row.snap.player_name != row.snap.display_name %}
+                {{ row.snap.player_name }} ·
+              {% endif %}
+              {{ row.snap.source }}{% if row.snap.cache_hit %} · cached{% endif %}
+              {% if row.snap.scores_url %}
+                · <a href="{{ row.snap.scores_url }}" style="color:var(--cyan)">scores</a>
+              {% endif %}
+              {% if row.snap.error %}<br />{{ row.snap.error }}{% endif %}
+            </div>
+          </td>
+          <td class="score">{% if row.snap.total_score is not none %}{{ "{:,}".format(row.snap.total_score) }}{% else %}—{% endif %}</td>
+          <td>{% if row.snap.yearly_score is not none %}{{ "{:,}".format(row.snap.yearly_score) }}{% else %}—{% endif %}</td>
+          <td>{% if row.snap.standing is not none %}#{{ row.snap.standing }}{% else %}—{% endif %}</td>
+          <td class="sub">
+            {% if row.snap.profile_rank is not none %}profile {{ row.snap.profile_rank }}{% endif %}
+            {% if row.snap.player_rank is not none %}<br />player {{ row.snap.player_rank }}{% endif %}
+            {% if row.snap.yearly_rank is not none %}<br />yearly {{ row.snap.yearly_rank }}{% endif %}
+            {% if row.snap.profile_rank is none and row.snap.player_rank is none and row.snap.yearly_rank is none %}—{% endif %}
+          </td>
+          <td>
+            {% if row.snap.levels_beat is not none %}
+              {{ row.snap.levels_beat }}{% if row.snap.level_count %} / {{ row.snap.level_count }}{% endif %}
+            {% else %}—{% endif %}
+          </td>
+          <td>
+            {% if row.snap.stars is not none or row.snap.coins is not none %}
+              {{ row.snap.stars if row.snap.stars is not none else "—" }} / {{ row.snap.coins if row.snap.coins is not none else "—" }}
+            {% else %}—{% endif %}
+          </td>
+          {% for g in row.game_scores %}
+          <td>{% if g and g.best_score is not none %}{{ g.best_score }}{% else %}<span class="muted">—</span>{% endif %}</td>
+          {% endfor %}
+        </tr>
+        {% if row.snap.rewards %}
+        <tr>
+          <td></td>
+          <td colspan="{{ 7 + game_columns|length }}" class="sub">
+            Rewards:
+            {% for r in row.snap.rewards %}
+              <span class="pill" style="margin:0.15rem 0.2rem 0.15rem 0;display:inline-block;">
+                {{ r.name }}{% if r.cost is not none %} · {{ r.cost }}{% endif %}{% if r.in_stock is not none %} · {% if r.in_stock %}in stock{% else %}out{% endif %}{% endif %}{% if r.status is not none %} · status {{ r.status }}{% endif %}{% if r.location_id is not none %} · loc {{ r.location_id }}{% endif %}
+              </span>
+            {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+        {% else %}
+        <tr><td colspan="8" class="muted">No friends yet. Add someone below.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Add a friend</h2>
+  <p class="hint">
+    Best path: on <a href="https://playactivate.com/scores" style="color:var(--cyan)">playactivate.com/scores</a>,
+    look yourself (or a friend) up, open the Pointe Orlando scores page, copy the URL, and paste it here.
+    Example shape: <code>/scores/{player}/41/orlando%20(pointe%20orlando)/scores</code>.
+    Player id alone also works (we default to score location 41). Email search is best-effort and often blocked by Cloudflare from cloud hosts.
+  </p>
+  <form method="post" action="/friends/add" class="inline" style="margin-top:0.75rem;">
+    <label>Display name
+      <input type="text" name="display_name" placeholder="GibsonLeader" />
+    </label>
+    <label>Scores URL / player id / email
+      <input type="text" name="identifier" placeholder="https://playactivate.com/scores/gibsonleader/41/orlando%20(pointe%20orlando)/scores" required style="min-width:min(100%,340px)" />
+    </label>
+    <label>Admin token
+      <input type="password" name="admin_token" placeholder="if configured" />
+    </label>
+    <button type="submit">Add friend</button>
+  </form>
+</section>
+
+<section class="panel">
+  <h2>Friends</h2>
+  <div class="friends-list">
+    {% for friend in friends %}
+    <div class="friend-row">
+      <div>
+        <div class="name">{{ friend.display_name }}</div>
+        <div class="sub">
+          {% if friend.player_id %}id={{ friend.player_id }} · {% endif %}
+          {% if friend.email %}{{ friend.email }} · {% endif %}
+          {% if friend.scores_url %}<a href="{{ friend.scores_url }}" style="color:var(--cyan)">scores</a>{% endif %}
+          {% if friend.rewards_url %} · <a href="{{ friend.rewards_url }}" style="color:var(--cyan)">rewards</a>{% endif %}
+        </div>
+      </div>
+      <form method="post" action="/friends/{{ friend.id }}/delete" class="inline">
+        <input type="password" name="admin_token" placeholder="token" />
+        <button class="danger" type="submit">Remove</button>
+      </form>
+    </div>
+    {% else %}
+    <p class="muted">No friends configured.</p>
+    {% endfor %}
+  </div>
+</section>
+
+<p class="footer">
+  Open source friends board · uses only Activate public website pages · MIT licensed
+</p>
+{% endblock %}
