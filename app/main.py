@@ -44,6 +44,34 @@ def _check_admin(settings: Settings, token: str | None) -> None:
         raise HTTPException(status_code=401, detail="Invalid admin token")
 
 
+
+async def _refresh_friend(
+    client: ActivateClient,
+    friends_store: FriendsStore,
+    friend,
+    *,
+    force: bool = False,
+):
+    """Refresh one friend; persist email-search resolutions to a stable scores URL."""
+    had_scores_url = bool(friend.scores_url)
+    snap = await client.refresh_friend(friend, force=force)
+    if (
+        not had_scores_url
+        and snap.scores_url
+        and snap.source == "live"
+        and not snap.error
+    ):
+        friends_store.bind_resolved_scores(
+            friend.id,
+            scores_url=snap.scores_url,
+            player_id=snap.player_id,
+            rewards_url=snap.rewards_url,
+            display_name=snap.player_name,
+        )
+    return snap
+
+
+
 @app.get("/healthz")
 async def healthz() -> dict[str, str]:
     return {"status": "ok"}
@@ -59,7 +87,7 @@ async def leaderboard(
 ) -> HTMLResponse:
     friends = friends_store.list_friends()
     snapshots = await asyncio.gather(
-        *[client.refresh_friend(friend, force=force) for friend in friends]
+        *[_refresh_friend(client, friends_store, friend, force=force) for friend in friends]
     )
     ranked = rank_snapshots(list(snapshots))
     game_columns = [name for _, name in ORLANDO_GAMES]
@@ -159,7 +187,7 @@ async def api_leaderboard(
 ) -> dict:
     friends = friends_store.list_friends()
     snapshots = await asyncio.gather(
-        *[client.refresh_friend(friend, force=force) for friend in friends]
+        *[_refresh_friend(client, friends_store, friend, force=force) for friend in friends]
     )
     ranked = rank_snapshots(list(snapshots))
     return {

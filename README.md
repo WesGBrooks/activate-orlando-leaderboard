@@ -59,13 +59,23 @@ docker run --rm -p 8000:8000 -e FORCE_DEMO_MODE=true activate-orlando-leaderboar
 
 ## Adding friends
 
+Seeded Orlando (Pointe Orlando) friends:
+
+| Friend | Binding | Refresh |
+|---|---|---|
+| **GibsonLeader** | scores URL (`gibsonleader` / location **41**) | GET `scores_url` |
+| **Tikimantim** | handle → scores URL | GET `scores_url` |
+| **HeavenlyKevinT** | handle → scores URL | GET `scores_url` |
+| **ReyRivera09** | email `ReyRivera09@gmail.com` | one-time POST `/scores` search, then persist slug/URL and GET |
+
+Friends config supports a mix of **scores URLs**, **handles**, and **emails**. Handles are stored with a stable Pointe Orlando scores URL (location id **41**). Emails are resolved once via Activate’s public search, then saved as `player_id` + `scores_url` so later refreshes skip search.
+
 1. Visit https://playactivate.com/scores and look up a player.
 2. Open the **Pointe Orlando** scores page (URL location id **41**).
-3. Copy the URL and paste it into **Add a friend** (or put the player slug alone).
+3. Copy the URL and paste it into **Add a friend**, or enter a handle / email.
 
-You can also edit `data/friends.json`. GibsonLeader is already seeded with the public scores + rewards URLs.
+You can also edit `data/friends.json`. Optional: set `ADMIN_TOKEN` so add/remove/refresh require a shared secret.
 
-Optional: set `ADMIN_TOKEN` so add/remove/refresh require a shared secret.
 
 ## Scoring refresh + caching
 

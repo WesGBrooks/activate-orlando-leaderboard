@@ -174,8 +174,12 @@ class ActivateClient:
             return self._demo_snapshot(friend)
 
         target = self._scores_target(friend)
+        resolved_from_search = False
         if not target and friend.email:
-            target = await self.try_search_player(friend.email)
+            found = await self.try_search_player(friend.email)
+            if found:
+                target = found
+                resolved_from_search = True
 
         if not target:
             stale = self.cache.get_stale(key)
@@ -209,6 +213,8 @@ class ActivateClient:
                     if target.startswith("http")
                     else f"{self.settings.activate_base_url}{target}"
                 )
+                if not scores_url.startswith("http"):
+                    scores_url = f"{self.settings.activate_base_url}{scores_url}"
                 rewards_url = friend.rewards_url or rewards_url_from_scores_url(scores_url)
                 rewards = []
                 if self.settings.fetch_rewards and rewards_url:
@@ -230,8 +236,17 @@ class ActivateClient:
                 )
                 if not snap.player_id and friend.player_id:
                     snap.player_id = friend.player_id
+                if not snap.player_id:
+                    parts = parse_scores_url(scores_url)
+                    if parts:
+                        snap.player_id = parts.player
                 if not snap.rewards_url and rewards_url:
                     snap.rewards_url = rewards_url
+                if resolved_from_search:
+                    # Signal callers to persist scores_url so later refreshes skip search.
+                    snap.scores_url = scores_url
+                    if rewards_url:
+                        snap.rewards_url = rewards_url
                 self.cache.set(key, snap.model_dump(mode="json"))
                 return snap
         except Exception as exc:  # noqa: BLE001
@@ -298,7 +313,9 @@ class ActivateClient:
                 if resp.status_code in {301, 302, 303, 307, 308}:
                     location = resp.headers.get("location")
                     if location and "/scores/" in location:
-                        return location
+                        if location.startswith("http"):
+                            return location
+                        return f"{self.settings.activate_base_url}{location}"
                 if resp.status_code != 200:
                     logger.info("search %s => HTTP %s", query, resp.status_code)
                     return None
@@ -313,11 +330,12 @@ class ActivateClient:
                 if isinstance(players, list) and players:
                     first = players[0]
                     if isinstance(first, str):
-                        return build_player_scores_path(
+                        path = build_player_scores_path(
                             first,
                             str(self.settings.activate_score_location_id),
                             self.settings.activate_score_location_name,
                         )
+                        return f"{self.settings.activate_base_url}{path}"
                     if isinstance(first, dict):
                         player = (
                             first.get("id")
@@ -326,7 +344,7 @@ class ActivateClient:
                             or first.get("slug")
                         )
                         if player:
-                            return build_player_scores_path(
+                            path = build_player_scores_path(
                                 str(player),
                                 str(
                                     first.get("locationId")
@@ -337,9 +355,13 @@ class ActivateClient:
                                     or self.settings.activate_score_location_name
                                 ),
                             )
+                            return f"{self.settings.activate_base_url}{path}"
                 url = data.get("url") or ""
                 if "/scores/" in str(url):
-                    return str(url)
+                    url = str(url)
+                    if url.startswith("http"):
+                        return url
+                    return f"{self.settings.activate_base_url}{url}"
         except Exception as exc:  # noqa: BLE001
             logger.warning("search failed for %s: %s", query, exc)
         return None
