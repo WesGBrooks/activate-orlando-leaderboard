@@ -175,7 +175,11 @@ class ActivateClient:
 
         target = self._scores_target(friend)
         resolved_from_search = False
-        if not target and friend.email:
+        if (
+            not target
+            and friend.email
+            and not getattr(friend, "pending_resolution", False)
+        ):
             found = await self.try_search_player(friend.email)
             if found:
                 target = found
@@ -189,6 +193,17 @@ class ActivateClient:
                 snap.source = "cache"
                 snap.error = "No player id/scores URL yet; showing last cache if any."
                 return snap
+            if getattr(friend, "pending_resolution", False):
+                return PlayerSnapshot(
+                    friend_id=friend.id,
+                    display_name=friend.display_name,
+                    source="pending",
+                    error=(
+                        "Player handle pending — email matched multiple Activate profiles. "
+                        "Waiting on Wes to pick Amalikite vs yourfriendlyneighborhoodtherapist."
+                    ),
+                    fetched_at=utcnow(),
+                )
             if self.settings.demo_mode_fallback:
                 return self._demo_snapshot(friend, reason="missing player id / scores URL")
             return PlayerSnapshot(

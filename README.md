@@ -64,11 +64,11 @@ Seeded Orlando (Pointe Orlando) friends:
 | Friend | Binding | Refresh |
 |---|---|---|
 | **GibsonLeader** | scores URL (`gibsonleader` / location **41**) | GET `scores_url` |
-| **Tikimantim** | handle → scores URL | GET `scores_url` |
-| **HeavenlyKevinT** | handle → scores URL | GET `scores_url` |
-| **ReyRivera09** | email `ReyRivera09@gmail.com` | one-time POST `/scores` search, then persist slug/URL and GET |
+| **TikimanTim** | confirmed scores URL (was handle Tikimantim) | GET `scores_url` |
+| **HeavenlyKevinT** | confirmed scores URL | GET `scores_url` |
+| **ReyRivera09** | email only — **PENDING Wes** (ambiguous: Amalikite vs yourfriendlyneighborhoodtherapist) | no auto-resolve |
 
-Friends config supports a mix of **scores URLs**, **handles**, and **emails**. Handles are stored with a stable Pointe Orlando scores URL (location id **41**). Emails are resolved once via Activate’s public search, then saved as `player_id` + `scores_url` so later refreshes skip search.
+Friends config supports a mix of **scores URLs**, **handles**, and **emails**. Handles/URLs refresh via GET. Emails resolve once via Activate’s public search *unless* `pending_resolution` is set (Rey).
 
 1. Visit https://playactivate.com/scores and look up a player.
 2. Open the **Pointe Orlando** scores page (URL location id **41**).

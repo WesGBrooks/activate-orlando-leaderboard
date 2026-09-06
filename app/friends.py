@@ -17,10 +17,48 @@ ACTIVATE_ORIGIN = "https://playactivate.com"
 ORLANDO_SCORE_LOCATION = "41"
 ORLANDO_SCORE_LOCATION_NAME = "orlando (pointe orlando)"
 
+# Exact public scores URLs confirmed for Pointe Orlando (location id 41).
+# Player path segments preserve Activate handle casing.
+GIBSON_SCORES_URL = (
+    "https://playactivate.com/scores/gibsonleader/41/"
+    "orlando%20%28pointe%20orlando%29/scores"
+)
+GIBSON_REWARDS_URL = (
+    "https://playactivate.com/scores/gibsonleader/41/"
+    "orlando%20%28pointe%20orlando%29/rewards"
+)
+TIKI_SCORES_URL = (
+    "https://playactivate.com/scores/TikimanTim/41/"
+    "orlando%20(pointe%20orlando)/scores"
+)
+TIKI_REWARDS_URL = (
+    "https://playactivate.com/scores/TikimanTim/41/"
+    "orlando%20(pointe%20orlando)/rewards"
+)
+KEVIN_SCORES_URL = (
+    "https://playactivate.com/scores/HeavenlyKevinT/41/"
+    "orlando%20(pointe%20orlando)/scores"
+)
+KEVIN_REWARDS_URL = (
+    "https://playactivate.com/scores/HeavenlyKevinT/41/"
+    "orlando%20(pointe%20orlando)/rewards"
+)
+
+REY_PENDING_NOTES = (
+    "PENDING Wes pick — email ReyRivera09@gmail.com is AMBIGUOUS. "
+    "Do NOT auto-resolve. Candidates: "
+    "(1) Amalikite https://playactivate.com/scores/Amalikite/41/orlando%20(pointe%20orlando)/scores "
+    "(rank 2, Orlando #21363, score 74727, levels 31/480, 141 coins); "
+    "(2) yourfriendlyneighborhoodtherapist "
+    "https://playactivate.com/scores/yourfriendlyneighborhoodtherapist/41/orlando%20(pointe%20orlando)/scores "
+    "(rank 8, Orlando #893, score 207195, levels 64/480, 166 coins)."
+)
+
 
 def orlando_scores_url(player_slug: str) -> str:
+    """Build a Pointe Orlando scores URL, preserving handle casing."""
     path = build_player_scores_path(
-        player_slug.lower(),
+        player_slug,
         ORLANDO_SCORE_LOCATION,
         ORLANDO_SCORE_LOCATION_NAME,
     )
@@ -32,13 +70,6 @@ def orlando_rewards_url(player_slug: str) -> str:
         orlando_scores_url(player_slug)[: -len("scores")] + "rewards"
     )
 
-
-GIBSON_SCORES_URL = orlando_scores_url("gibsonleader")
-GIBSON_REWARDS_URL = orlando_rewards_url("gibsonleader")
-TIKI_SCORES_URL = orlando_scores_url("tikimantim")
-TIKI_REWARDS_URL = orlando_rewards_url("tikimantim")
-KEVIN_SCORES_URL = orlando_scores_url("heavenlykevint")
-KEVIN_REWARDS_URL = orlando_rewards_url("heavenlykevint")
 
 DEFAULT_FRIENDS = FriendsFile(
     location_id=42,
@@ -62,23 +93,30 @@ DEFAULT_FRIENDS = FriendsFile(
         ),
         Friend(
             id="tikimantim",
-            display_name="Tikimantim",
-            player_id="tikimantim",
+            display_name="TikimanTim",
+            player_id="TikimanTim",
             score_location=ORLANDO_SCORE_LOCATION,
             location_name=ORLANDO_SCORE_LOCATION_NAME,
             scores_url=TIKI_SCORES_URL,
             rewards_url=TIKI_REWARDS_URL,
-            notes="Seeded by Activate handle. Refresh via GET on scores_url.",
+            notes=(
+                "Resolved handle Tikimantim → TikimanTim. "
+                "Confirmed live: rank 14, Orlando #169, score 362944, levels 100/480, coins 374. "
+                "Refresh via GET on scores_url."
+            ),
         ),
         Friend(
             id="heavenlykevint",
             display_name="HeavenlyKevinT",
-            player_id="heavenlykevint",
+            player_id="HeavenlyKevinT",
             score_location=ORLANDO_SCORE_LOCATION,
             location_name=ORLANDO_SCORE_LOCATION_NAME,
             scores_url=KEVIN_SCORES_URL,
             rewards_url=KEVIN_REWARDS_URL,
-            notes="Seeded by Activate handle. Refresh via GET on scores_url.",
+            notes=(
+                "Confirmed live: rank 14, Orlando #179, score 354266, levels 109/480, coins 301. "
+                "Refresh via GET on scores_url."
+            ),
         ),
         Friend(
             id="reyrivera09",
@@ -86,10 +124,8 @@ DEFAULT_FRIENDS = FriendsFile(
             email="reyrivera09@gmail.com",
             score_location=ORLANDO_SCORE_LOCATION,
             location_name=ORLANDO_SCORE_LOCATION_NAME,
-            notes=(
-                "Email seed. Resolve once via public POST /scores search to a stable "
-                "player slug / scores_url, then refresh via GET."
-            ),
+            pending_resolution=True,
+            notes=REY_PENDING_NOTES,
         ),
     ],
 )
@@ -105,15 +141,28 @@ class FriendsStore:
             self._migrate_seed_if_needed()
 
     def _migrate_seed_if_needed(self) -> None:
-        """Keep GibsonLeader URL seed healthy and merge any missing DEFAULT friends."""
+        """Upgrade Gibson/Tiki/Kevin seeds and keep Rey as an ambiguous placeholder."""
         data = self.load()
         changed = False
+        seed_by_id = {f.id: f for f in DEFAULT_FRIENDS.friends}
 
-        for idx, friend in enumerate(data.friends):
-            if friend.id in {"wes", "gibsonleader"} or friend.email == "wesgbrooks@gmail.com":
-                if not friend.scores_url or friend.player_id != "gibsonleader":
-                    data.friends[idx] = DEFAULT_FRIENDS.friends[0].model_copy(deep=True)
-                    changed = True
+        # Replace known seed ids with the canonical DEFAULT entries.
+        for idx, friend in enumerate(list(data.friends)):
+            if friend.id in seed_by_id:
+                canonical = seed_by_id[friend.id]
+                # Always refresh resolved handle URLs / pending Rey placeholder.
+                if friend.id in {"gibsonleader", "tikimantim", "heavenlykevint", "reyrivera09"}:
+                    if friend.model_dump(exclude={"created_at"}) != canonical.model_dump(
+                        exclude={"created_at"}
+                    ):
+                        data.friends[idx] = canonical.model_copy(
+                            deep=True,
+                            update={"created_at": friend.created_at},
+                        )
+                        changed = True
+            elif friend.id == "wes" or friend.email == "wesgbrooks@gmail.com":
+                data.friends[idx] = seed_by_id["gibsonleader"].model_copy(deep=True)
+                changed = True
 
         existing_ids = {f.id for f in data.friends}
         existing_emails = {f.email for f in data.friends if f.email}
@@ -125,6 +174,12 @@ class FriendsStore:
             if seed.email and seed.email in existing_emails:
                 continue
             if seed.player_id and seed.player_id.lower() in existing_players:
+                # Upgrade wrong casing / old slug in place when possible.
+                for idx, friend in enumerate(data.friends):
+                    if friend.player_id and friend.player_id.lower() == seed.player_id.lower():
+                        data.friends[idx] = seed.model_copy(deep=True)
+                        changed = True
+                        break
                 continue
             data.friends.append(seed.model_copy(deep=True))
             changed = True
@@ -189,6 +244,9 @@ class FriendsStore:
         friend = self.get(friend_id)
         if friend is None:
             return None
+        if friend.pending_resolution:
+            # Ambiguous email — do not bind until Wes picks a handle.
+            return friend
         parsed = parse_scores_url(scores_url)
         absolute = scores_url if scores_url.startswith("http") else f"{ACTIVATE_ORIGIN}{scores_url}"
         slug = player_id or (parsed.player if parsed else None) or friend.player_id
@@ -197,9 +255,10 @@ class FriendsStore:
             "rewards_url": rewards_url
             or rewards_url_from_scores_url(absolute)
             or friend.rewards_url,
+            "pending_resolution": False,
         }
         if slug:
-            updates["player_id"] = slug.lower()
+            updates["player_id"] = slug  # preserve Activate handle casing
         if parsed:
             updates["score_location"] = parsed.score_location
             updates["location_name"] = parsed.location_name
@@ -232,6 +291,7 @@ class FriendsStore:
         rewards_url = None
         score_location = location_id
         loc_name = location_name or location_slug
+        pending_resolution = False
 
         if "playactivate.com" in identifier or identifier.startswith("/scores/"):
             parsed = parse_scores_url(identifier)
@@ -260,8 +320,8 @@ class FriendsStore:
             if not display_name or display_name == identifier:
                 display_name = email.split("@")[0]
         else:
-            # Handle / player slug — build a stable Orlando scores URL for GET refresh.
-            player_id = identifier.lower()
+            # Preserve handle casing in the scores URL path segment.
+            player_id = identifier
             if not display_name or display_name == identifier:
                 display_name = identifier
             path = build_player_scores_path(player_id, score_location, loc_name)
@@ -277,5 +337,6 @@ class FriendsStore:
             location_name=loc_name,
             scores_url=scores_url,
             rewards_url=rewards_url,
+            pending_resolution=pending_resolution,
         )
         return self.upsert(friend)

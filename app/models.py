@@ -21,6 +21,8 @@ class Friend(BaseModel):
     scores_url: str | None = None
     rewards_url: str | None = None
     notes: str | None = None
+    # When True, do not auto-resolve email via /scores search (ambiguous match).
+    pending_resolution: bool = False
     created_at: datetime = Field(default_factory=utcnow)
 
     @field_validator("email")
